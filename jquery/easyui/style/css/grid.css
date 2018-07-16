@@ -1,0 +1,103 @@
+@charset "utf-8";
+/* CSS Document */
+
+.grid{
+	border: 1px solid #95b8e7;
+	line-height: 26px;
+}
+
+.grid_title {
+	background-color: #e8f1ff;
+	padding-left: 26px;
+	font-weight: bold;
+	color: #0e2d5f;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	border-bottom-color: #95b8e7;
+	background-image: url(../images/grid_tb.gif);
+	background-repeat: no-repeat;
+	height: 26px;
+}
+.grid_tool{
+	padding-left: 10px;
+	background-color: #ffffff;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	border-bottom-color: #dddddd;
+	padding-top: 2px;
+	padding-bottom: 2px;
+}
+.grid_list {
+	width:100%;
+	line-height: 24px;
+}
+
+.grid_list th {
+	background-color: #f0f0f0;
+	border-right-width: 1px;
+	border-bottom-width: 1px;
+	border-right-style: solid;
+	border-bottom-style: solid;
+	border-right-color: #dddddd;
+	border-bottom-color: #dddddd;
+}
+.grid_list td{
+	border-right-width: 1px;
+	border-bottom-width: 1px;
+	border-right-style: solid;
+	border-bottom-style: solid;
+	border-right-color: #dddddd;
+	border-bottom-color: #dddddd;
+	padding-left: 4px;
+	padding-right: 4px;
+}
+
+.grid_edit {
+	width:100%;
+}
+
+.grid_edit_t {
+	background-color: #F4F4F4;
+	border-right-color: #dddddd;
+	border-bottom-color: #dddddd;
+	border-left-color: #F6F6F6;
+	font-weight: bold;
+	text-align: right;
+	padding-right: 10px;
+}
+
+.grid_edit td{
+	border-right-width: 1px;
+	border-bottom-width: 1px;
+	border-right-style: solid;
+	border-bottom-style: solid;
+	border-right-color: #dddddd;
+	border-bottom-color: #dddddd;
+	padding-left: 4px;
+	padding-right: 4px;
+	border-top-width: 1px;
+	border-left-width: 1px;
+	border-top-style: solid;
+	border-left-style: solid;
+	border-top-color: #FFFFFF;
+	border-left-color: #FFFFFF;
+}
+
+.grid_foot {
+	background-color: #ffffff;
+	text-align: right;
+	padding-right: 10px;
+}
+.grid_title_r {
+	display: block;
+	height: 16px;
+	width: 16px;
+	float: right;
+	clear: right;
+	margin-top: 5px;
+	margin-right: 5px;
+	background-image: url(../images/grid_tr.gif);
+}
+.grid_title span {
+	float: left;
+}

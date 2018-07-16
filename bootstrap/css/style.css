@@ -1,0 +1,124 @@
+@charset "utf-8";
+/* CSS Document */
+
+body,td,th {
+	font-family: 宋体;
+	font-size: 14px;
+}
+input,textarea {
+	font-family: 宋体;
+	font-size: 12px;
+}
+body {
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+}
+a {
+	text-decoration: none;
+	color: #000000;
+}
+ul {
+	margin: 0;
+	padding: 0;
+}
+li {
+	line-height: 20px;
+	list-style: none;
+}
+
+/* 常用字体 */
+.p12 {
+	font-size: 12px;
+}
+.p12red {
+	font-size: 12px;
+	color: #FF0000;
+}
+.p12zong {
+	font-size: 12px;
+	color: #CC6600;
+}
+.p12zong a{
+	font-size: 12px;
+	color: #CC6600;
+}
+
+.p12white {
+	font-size: 12px;
+	color: #ffffff;
+}
+.p12blue {
+	font-size: 12px;
+	color: #999999;
+}
+.p14zong_b {
+	font-size: 14px;
+	color: #CC6600;
+	font-family: "宋体";
+	font-weight: bold;
+}
+.p12text {
+	font-size: 12px;
+	line-height: 160%;
+}
+.p14text {
+	font-size: 14px;
+	font-family: "宋体";
+	line-height: 160%;
+}
+.p14zong {
+	font-size: 14px;
+	color: #CC6600;
+}
+.p14zong a{
+	font-size: 14px;
+	color: #CC6600;
+}
+.p16zong_b {
+	font-size: 16px;
+	color: #CC6600;
+	font-weight: bold;
+}
+
+/* 表格 */
+.grid {
+	border: 1px solid #cccccc;
+	border-collapse: collapse;
+}
+.grid th,.grid td {
+	font-family: 宋体;
+	font-size: 12px;
+	border: 1px solid #cccccc;
+	padding: 6px;
+}
+.grid td {
+	text-align: left;
+}
+.grid th {
+	background-color: #F0F0F0;
+	text-align: right;
+}
+.grid_nav {
+	text-align: right;
+	line-height: 30px;
+}
+
+
+.top_title {
+	font-size: 36px;
+	font-weight: bold;
+	color: #FF6600;
+}
+.nav {
+	color: #FFFFFF;
+	font-weight: bold;
+}
+.nav a{
+	color: #FFFFFF;
+	font-weight: bold;
+}
+
+
+
