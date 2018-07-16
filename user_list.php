@@ -27,6 +27,11 @@ include("admin.php");
                     </a>
                     <ul class="templatemo-submenu">
                         <li><a href="index.php"><i class="fa fa-database"></i>帐户资料</a></li>
+                        <li><a href="user_list.php"><i class="fa fa-database"></i>用户管理</a></li>
+                        <li><a href="techl_ist.php"><i class="fa fa-database"></i>技术成果管理</a></li>
+                        <li><a href="demand_list.php"><i class="fa fa-database"></i>企业需求管理</a></li>
+                        <li><a href="expert_list.php"><i class="fa fa-database"></i>专家账号管理</a></li>
+                        <li><a href="question_list.php"><i class="fa fa-database"></i>用户提问管理</a></li>
                     </ul>
                 </li>
 
@@ -35,12 +40,21 @@ include("admin.php");
                         <div class="pull-right"><span class="caret"></span></div>
                     </a>
                     <ul class="templatemo-submenu">
-                        <li><a href="#"><i class="fa fa-home"></i>栏目管理</a></li>
-                        <li><a href="#"><i class="fa fa-home"></i>内容管理</a></li>
+                        <li><a href="info_category.php"><i class="fa fa-home"></i>栏目管理</a></li>
+                        <li><a href="info_list.php"><i class="fa fa-home"></i>内容管理</a></li>
                     </ul>
                 </li>
 
-                <li style="border-bottom:1px solid #ddd "><a href="userlist.php">用户管理</a></li>
+                <li style="border-bottom:1px solid #ddd" class="sub">
+                    <a href="javascript:;">政策法规管理
+                        <div class="pull-right"><span class="caret"></span></div>
+                    </a>
+                    <ul class="templatemo-submenu">
+                        <li><a href="policy_category.php"><i class="fa fa-home"></i>栏目管理</a></li>
+                        <li><a href="policy_list.php"><i class="fa fa-home"></i>内容管理</a></li>
+                    </ul>
+                </li>
+
                 <li style="border-bottom:1px solid #ddd "><a href="javascript:void(0);" onclick="logout();">注销登录</a>
                 </li>
                 <script>
