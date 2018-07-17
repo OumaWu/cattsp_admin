@@ -1,7 +1,6 @@
 <?php
 include("admin.php");
 ?>
-
 <!DOCTYPE html>
 <head>
     <meta charset="utf-8">
@@ -32,9 +31,9 @@ include("admin.php");
                         <div class="pull-right"><span class="caret"></span></div>
                     </a>
                     <ul class="templatemo-submenu">
-                        <li><a href="index.php"><i class="fa fa-database"></i>帐户资料</a></li>
-                        <li><a href="user_list.php"><i class="fa fa-database"></i>用户管理</a></li>
-                        <li><a href="techl_ist.php"><i class="fa fa-database"></i>技术成果管理</a></li>
+                        <li><a href="index.php"><i class="fa fa-database"></i>用户资料</a></li>
+                        <li><a href="user_list.php"><i class="fa fa-database"></i>账号管理</a></li>
+                        <li><a href="tech_list.php"><i class="fa fa-database"></i>技术成果管理</a></li>
                         <li><a href="demand_list.php"><i class="fa fa-database"></i>企业需求管理</a></li>
                         <li><a href="expert_list.php"><i class="fa fa-database"></i>专家账号管理</a></li>
                         <li><a href="question_list.php"><i class="fa fa-database"></i>用户提问管理</a></li>

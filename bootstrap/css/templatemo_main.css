@@ -34,7 +34,7 @@ h1 { font-size: 24px; }
     width: 100%;
 }
 .templatemo-content {
-	margin-left: 235px;
+	/*margin-left: 235px;*/
 	margin-top: 0px;
 	min-height: 600px;
 	background-color: white;
@@ -80,7 +80,7 @@ h1 { font-size: 24px; }
     margin: 0;
     padding: 0;
     border: 0px;
-	width: 229px;
+	width: 180px;
 }
 .templatemo-sidebar .templatemo-sidebar-menu > li > a {
     display: block;
