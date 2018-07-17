@@ -1,11 +1,14 @@
 /* CSS Document */
 .new {
-	padding-top: 60px;
 	height: 100%;
+	margin: 0;
+	padding: 0;
 }
-body {
-	margin: 0px;
-	padding: 0px;
+
+body, html {
+	height: 100%;
+	margin: 0;
+	padding: 0;
 }
 .title {
 	position: absolute;

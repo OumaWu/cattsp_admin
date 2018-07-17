@@ -15,67 +15,18 @@ include("admin.php");
     <script src="./jquery/gobal.js" type="text/javascript"></script>
     <title>中国-东盟太阳能技术转移平台后台管理系统</title>
     <?php include("./jquery/easyui/style/easyui.php"); ?>
-    <style>
-        .class1 {
-            text-align: center;
-        }
-    </style>
 </head>
 <body class="new">
 <?php include("./style/top.php"); ?>
 <div id="main-wrapper">
     <div class="template-page-wrapper">
-        <div class="navbar-collapse collapse templatemo-sidebar" style=" margin-left:0;">
-            <ul class="templatemo-sidebar-menu">
-
-                <li style="border-bottom:1px solid #ddd" class="sub">
-                    <a href="javascript:;">管理中心
-                        <div class="pull-right"><span class="caret"></span></div>
-                    </a>
-                    <ul class="templatemo-submenu">
-                        <li><a href="index.php"><i class="fa fa-database"></i>用户资料</a></li>
-                        <li><a href="user_list.php"><i class="fa fa-database"></i>账号管理</a></li>
-                        <li><a href="tech_list.php"><i class="fa fa-database"></i>技术成果管理</a></li>
-                        <li><a href="demand_list.php"><i class="fa fa-database"></i>企业需求管理</a></li>
-                        <li><a href="expert_list.php"><i class="fa fa-database"></i>专家账号管理</a></li>
-                        <li><a href="question_list.php"><i class="fa fa-database"></i>用户提问管理</a></li>
-                    </ul>
-                </li>
-
-                <li style="border-bottom:1px solid #ddd" class="sub">
-                    <a href="javascript:;">资讯管理
-                        <div class="pull-right"><span class="caret"></span></div>
-                    </a>
-                    <ul class="templatemo-submenu">
-                        <li><a href="info_category.php"><i class="fa fa-home"></i>栏目管理</a></li>
-                        <li><a href="info_list.php"><i class="fa fa-home"></i>内容管理</a></li>
-                    </ul>
-                </li>
-
-                <li style="border-bottom:1px solid #ddd" class="sub">
-                    <a href="javascript:;">政策法规管理
-                        <div class="pull-right"><span class="caret"></span></div>
-                    </a>
-                    <ul class="templatemo-submenu">
-                        <li><a href="policy_category.php"><i class="fa fa-home"></i>栏目管理</a></li>
-                        <li><a href="policy_list.php"><i class="fa fa-home"></i>内容管理</a></li>
-                    </ul>
-                </li>
-
-                <li style="border-bottom:1px solid #ddd "><a href="javascript:void(0);" onclick="logout();">注销登录</a>
-                </li>
-                <script>
-                    function logout() {
-                        var con = confirm("确定要注销吗？");
-                        if (con)
-                            location.href = "logout.php";
-                    }
-                </script>
-            </ul>
-        </div>
+        <?php include("./style/side_nav.php"); ?>
         <!--/.navbar-collapse -->
         <div class="templatemo-content-wrapper">
             <div class="templatemo-content" style="border-left:1px solid #ddd; min-height:885px;">
+                <div class="modal-header" align="right">
+                    <a href="info_add.php" class="btn btn-primary">添加</a>
+                </div>
                 <div class="container" style="padding:0;">
                     <table width="85%" border="0" cellspacing="0" cellpadding="6">
                         <tr>
@@ -119,48 +70,6 @@ include("admin.php");
     </div>
 </div>
 <? include("./style/foot.php"); ?>
-<!--弹出窗口-->
-
-<script language="javascript">
-    $("td:contains('A')").parent('.class1').attr("class", "success");
-    $("td:contains('B')").parent('.class1').attr("class", "info");
-    $("td:contains('C')").parent('.class1').attr("class", "warning");
-    $("td:contains('D')").parent('.class1').attr("class", "danger");
-    $("td:contains('E')").parent('.class1').attr("class", "badly");
-    $("#all").bind('click', function () {
-        $("#list tr").css("display", "table-row")
-    });
-    $("#success").bind('click', function () {
-        $("#list tr").css("display", "table-row")
-        $("#list tr").not('.success').toggle()
-    });
-    $("#info").bind('click', function () {
-
-        $("#list tr").css("display", "table-row")
-        $("#list tr").not('.info').toggle()
-    });
-    $("#warning").bind('click', function () {
-
-        $("#list tr").css("display", "table-row")
-        $("#list tr").not('.warning').toggle()
-    });
-    $("#danger").bind('click', function () {
-
-        $("#list tr").css("display", "table-row")
-        $("#list tr").not('.danger').toggle()
-    });
-    $("#badly").bind('click', function () {
-
-        $("#list tr").css("display", "table-row")
-        $("#list tr").not('.badly').toggle()
-    });
-
-
-    function dlg(title, url) {
-        $(document).find("#dlgfrm").attr("src", url);
-        $("#dlg").dialog("open").dialog('setTitle', title);
-    }
-</script>
 <script src="./bootstrap/js/bootstrap.min.js"></script>
 <script src="./bootstrap/js/templatemo_script.js"></script>
 </body>

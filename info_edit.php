@@ -15,25 +15,28 @@ $news = $result->fetch(PDO::FETCH_OBJ);
 
 <body class="new">
 <? include("./style/top.php"); ?>
-<div class="container">
-    <table class="table-hober" width="100%" border="0" cellspacing="0" cellpadding="6">
+<div class="container" style="height: 100%">
+    <table class="table-hober" width="90%" align="center" border="0" cellspacing="0" cellpadding="6">
         <tr>
-            <td height="350" valign="top">
+            <td>
                 <form id="form1" name="form1" method="post" action="sql/updateNews.php">
-                    <table width="100%" border="0" cellpadding="0" cellspacing="0" class="grid">
+                    <table width="100%" cellspacing="0" cellpadding="0">
                         <tr>
-                            <td><a href="<?=$_SERVER['HTTP_REFERER'];?>">[返回]</a></td>
+                            <td style="float:left"><a href="info_list.php">[返回]</a></td>
+                            <td style="float:right"><a href="./sql/deleteNews.php?id=<?= $news->id ?>"
+                                        onclick="if(!confirm('确认删除?')) return false;">[删除]</a>
+                            </td>
                         </tr>
                     </table>
                     <br/>
                     <table width="100%" border="0" cellpadding="6" cellspacing="0" class="grid">
                         <tr>
-                            <th width="120" align="right">新闻标题：</th>
+                            <th align="right">新闻标题：</th>
                             <td><input name="title" type="text" id="title" value="<?=$news->title;?>"
                                        size="60"/></td>
                         </tr>
                         <tr>
-                            <th width="120" align="right">类别</th>
+                            <th align="right">类别：</th>
                             <td>
                                 <select name="category" id="category">
                                     <option value="1">通知公告</option>
@@ -48,10 +51,18 @@ $news = $result->fetch(PDO::FETCH_OBJ);
                             <th align="right">内容：</th>
                             <td><? include("common/edadd.php"); ?></td>
                         </tr>
-                        <tr>
-                            <th align="right">&nbsp;</th>
-                            <td><input type="submit" name="button" id="button" value="提交"/></td>
-                        </tr>
+
+                        <table width="100%" style="margin-top: 10px;" cellspacing="0" cellpadding="0">
+                            <tr>
+                                <td style="float:left">
+                                    <div class="modal-footer">
+                                        <input type="submit" name="button" id="button" value="提交"
+                                               class="btn btn-primary"/>
+                                    </div>
+
+                                </td>
+                            </tr>
+                        </table>
                     </table>
                 </form>
             </td>
