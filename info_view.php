@@ -17,66 +17,63 @@ $news = $result->fetch(PDO::FETCH_OBJ);
 <body class="new">
 <? include("./style/top.php"); ?>
 <div class="container">
-<!--    <div class="row">-->
-        <table width="90%" style="margin-bottom:20px;" align="center" border="0" cellspacing="0" cellpadding="6">
-            <tr>
-                <td>
-                    <br/>
-                    <table width="100%" cellspacing="0" cellpadding="0">
-                        <tr>
-                            <td style="float:left"><a href="info_list.php">[返回]</a></td>
-                            <td style="float:right"><a href="info_edit.php?id=<?= $news->id ?>">[修改]</a><a
-                                        href="./sql/deleteNews.php?id=<?= $news->id ?>"
-                                        onclick="if(!confirm('确认删除?')) return false;">[删除]</a>
-                            </td>
-                        </tr>
-                    </table>
+    <!--    <div class="row">-->
+    <table width="90%" style="margin-bottom:20px;" align="center" border="0" cellspacing="0" cellpadding="6">
+        <tr>
+            <td>
+                <br/>
+                <table width="100%" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td style="float:left"><a href="info_list.php">[返回]</a></td>
+                        <td style="float:right"><a href="info_edit.php?id=<?= $news->id ?>">[修改]</a><a
+                                    href="./sql/deleteNews.php?id=<?= $news->id ?>"
+                                    onclick="if(!confirm('确认删除?')) return false;">[删除]</a>
+                        </td>
+                    </tr>
+                </table>
 
-                    <br/>
-                    <table width="100%" border="0" cellpadding="6" cellspacing="0" class="grid">
+                <br/>
+                <table width="100%" border="0" cellpadding="6" cellspacing="0" class="grid">
 
-                        <tr>
-                            <td width="120" align="right">新闻标题：</td>
-                            <td width="995"><?= $news->title; ?></td>
-                        </tr>
+                    <tr>
+                        <td width="120" align="right">新闻标题：</td>
+                        <td width="995"><?= $news->title; ?></td>
+                    </tr>
 
-                        <tr>
-                            <td width="120" align="right">类别：</td>
-                            <td width="995"><?= $news->category; ?></td>
-                        </tr>
-                        <tr>
-                            <td align="right">新闻内容：</td>
-                            <td width="995">
-                                <div style="display:block;" id="hidnr">
-                                    <?php
-                                    $content =preg_split("/[\s]+/", $news->content);
-                                    foreach ($content as $paragraph) {
-                                        ?>
-                                        <p style="text-align:justify">&emsp;&emsp;<?=$paragraph;?></p>
-                                    <?php } ?>
-                                </div>
-                                <div style="display:none;" id="shownr">
-                                    <?php
-                                    foreach ($content as $paragraph) {
-                                        ?>
-                                        <p style="text-align:justify">&emsp;&emsp;<?=$paragraph;?></p>
-                                    <?php } ?>
-                                </div>
-                                <a href="#" style="font-size:16px;" id="toggle" onclick="showhidden();">全文</a></td>
-                        </tr>
-                        <tr>
-                            <td align="right">发布时间：</td>
-                            <td><?= $news->date; ?></td>
-                        </tr>
-<!--                        <tr>-->
-<!--                            <td align="right">风险等级评定：</td>-->
-<!--                            <td width="995">--><?//= $row["grade"] ?><!--</td>-->
-<!--                        </tr>-->
-                    </table>
-                </td>
-            </tr>
-        </table>
-<!--    </div>-->
+                    <tr>
+                        <td width="120" align="right">类别：</td>
+                        <td width="995"><?= $news->category; ?></td>
+                    </tr>
+                    <tr>
+                        <td align="right">新闻内容：</td>
+                        <td width="995">
+                            <div show="1" style="display:block;" id="hidnr">
+                                <?php
+                                $content = preg_split("/[\s]+/", $news->content);
+                                foreach ($content as $paragraph) {
+                                    ?>
+                                    <p style="text-align:justify">&emsp;&emsp;<?= $paragraph; ?></p>
+                                <?php } ?>
+                            </div>
+                            <div style="display:none;" id="shownr">
+                                <?php
+                                foreach ($content as $paragraph) {
+                                    ?>
+                                    <p style="text-align:justify">&emsp;&emsp;<?= $paragraph; ?></p>
+                                <?php } ?>
+                            </div>
+                            <a href="#" style="font-size:16px;" id="toggle" onclick="showhidden();">全文</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="right">发布时间：</td>
+                        <td><?= $news->date; ?></td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+    <!--    </div>-->
 </div>
 
 <? include("./style/foot.php"); ?>
@@ -102,7 +99,6 @@ $news = $result->fetch(PDO::FETCH_OBJ);
             xt.setAttribute("show", "0");
         }
         else {
-            var toggle = document.getElementById("toggle");
             toggle.innerHTML = "全文";
             shownr.style.display = "none";
             xt.style.display = "block";

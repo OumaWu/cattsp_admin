@@ -1,4 +1,9 @@
 /* CSS Document */
+
+select {
+	height: 20px;
+}
+
 .new {
 	height: 100%;
 	margin: 0;

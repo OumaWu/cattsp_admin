@@ -30,16 +30,18 @@ include("admin.php");
                             <td><input name="title" type="text" id="title" size="60"/></td>
                         </tr>
                         <tr>
-                            <th width="120" align="right">类别</th>
+                            <th width="120" align="right"><label for="category">类别</label></th>
                             <td>
-                                <select name="category" id="category">
-                                    <option value="1">通知公告</option>
-                                    <option value="2">科技咨询</option>
-                                </select></td>
-                        </tr>
-                        <tr>
-                            <th align="right">图片：</th>
-                            <td><input type="file" id="up_image" name="up_image" value=""/></td>
+                                <select name="category" id="category" style="height: 20px;">
+                                    <?php
+                                    require_once('./sql/newsColumns.php');
+                                    while ($res = $result->fetch(PDO::FETCH_OBJ)) {
+                                        ?>
+                                        <option value="<?= $res->id; ?>"><?= $res->title; ?></option>
+                                    <?php } ?>
+                                </select>
+
+                            </td>
                         </tr>
                         <tr>
                             <th align="right">内容：</th>

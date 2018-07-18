@@ -18,7 +18,7 @@ include("admin.php");
 </head>
 <body class="new">
 <?php include("./style/top.php"); ?>
-<div id="main-wrapper">
+<div id="main-wrapper" style="height: 100%">
     <div class="template-page-wrapper">
         <?php include("./style/side_nav.php"); ?>
         <!--/.navbar-collapse -->
@@ -50,12 +50,12 @@ include("admin.php");
                                         ?>
                                         <tr>
                                             <td><?= $res->id; ?></td>
-                                            <td><?= $res->category; ?></td>
+                                            <td><?= !empty($res->category) ? $res->category : "无"; ?></td>
                                             <td><a href="info_view.php?id=<?= $res->id; ?>"><?= $res->title; ?></a></td>
                                             <td><?= $res->date; ?></td>
                                             <td align="center">
                                                 <a href="info_edit.php?id=<?= $res->id; ?>">[修改]</a>
-                                                <a href="delete.php?id=<?= $res->id; ?>"
+                                                <a href="./sql/deleteNews.php?id=<?= $res->id; ?>"
                                                    onclick="if(!confirm('确认删除?')) return false;">[删除]</a>
                                             </td>
                                         </tr>

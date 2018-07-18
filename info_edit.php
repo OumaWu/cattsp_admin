@@ -19,7 +19,8 @@ $news = $result->fetch(PDO::FETCH_OBJ);
     <table class="table-hober" width="90%" align="center" border="0" cellspacing="0" cellpadding="6">
         <tr>
             <td>
-                <form id="form1" name="form1" method="post" action="sql/updateNews.php">
+                <form id="form1" name="form1" method="post" action="./sql/updateNews.php">
+                    <input type="hidden" name="id" id="id" value="<?= $news->id ?>">
                     <table width="100%" cellspacing="0" cellpadding="0">
                         <tr>
                             <td style="float:left"><a href="info_list.php">[返回]</a></td>
@@ -36,16 +37,16 @@ $news = $result->fetch(PDO::FETCH_OBJ);
                                        size="60"/></td>
                         </tr>
                         <tr>
-                            <th align="right">类别：</th>
+                            <th align="right"><label for="category">类别：</label></th>
                             <td>
-                                <select name="category" id="category">
-                                    <option value="1">通知公告</option>
-                                    <option value="2">科技咨询</option>
+                                <select name="category" id="category" style="height: 20px;">
+                                    <?php
+                                    require_once('./sql/newsColumns.php');
+                                    while ($res = $result->fetch(PDO::FETCH_OBJ)) {
+                                        ?>
+                                        <option value="<?= $res->id; ?>"><?= $res->title; ?></option>
+                                    <?php } ?>
                                 </select></td>
-                        </tr>
-                        <tr>
-                            <th align="right">图片：</th>
-                            <td><input type="file" id="up_image" name="up_image" value=""/></td>
                         </tr>
                         <tr>
                             <th align="right">内容：</th>
