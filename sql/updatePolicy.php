@@ -1,6 +1,6 @@
 <?php
 
-$url = "../info_list.php";
+$url = "../policy_list.php";
 $url2 = $_SERVER["HTTP_REFERER"];
 
 if (!empty($_POST["id"]) && !empty($_POST["title"])
@@ -13,20 +13,20 @@ if (!empty($_POST["id"]) && !empty($_POST["title"])
     $category = $_POST["category"];
 
 
-    $sql = "UPDATE `news`"
+    $sql = "UPDATE `policy`"
         ." SET `title` = '{$title}', `content` = '{$content}', `category` = '{$category}'"
-        ." WHERE `news`.`id` = {$id}";
+        ." WHERE `policy`.`id` = {$id}";
 
     try {
         $pdo->beginTransaction();
         $result = $pdo->prepare($sql);
         if ($result->execute()) {
             $pdo->commit();
-            echo "<script> alert('更新资讯成功！！');</script>";
+            echo "<script> alert('更新政策成功！！');</script>";
             echo "<meta http-equiv=\"refresh\" content=\"0.5;url=$url\">";
         } else {
             $pdo->rollBack();
-            echo "<script> alert('更新资讯失败！！\\n'+'{$pdo->errorInfo()}');</script>";
+            echo "<script> alert('更新政策失败！！\\n'+'{$pdo->errorInfo()}');</script>";
             echo "<meta http-equiv=\"refresh\" content=\"0.5;url=$url2\">";
         }
     } catch (PDOException $e) {

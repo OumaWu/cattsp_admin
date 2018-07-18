@@ -1,13 +1,13 @@
 <?php
 include("connection.php");
 
-$url = "../info_list.php";
+$url = "../policy_list.php";
 $id = $_GET["id"];
 
 /* 删除数据sql */
 if (!empty($id)) {
     try {
-        $sql = "DELETE FROM `news` WHERE `id` = $id";
+        $sql = "DELETE FROM `policy` WHERE `id` = $id";
 
         $pdo->beginTransaction();
         $result = $pdo->prepare($sql);

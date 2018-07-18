@@ -1,6 +1,6 @@
 ﻿<?
 include("admin.php");
-require_once('sql/selectNews.php');
+require_once('sql/selectPolicy.php');
 $news = $result->fetch(PDO::FETCH_OBJ);
 ?>
 <!DOCTYPE html>
@@ -19,12 +19,12 @@ $news = $result->fetch(PDO::FETCH_OBJ);
     <table class="table-hober" width="90%" align="center" border="0" cellspacing="0" cellpadding="6">
         <tr>
             <td>
-                <form id="form1" name="form1" method="post" action="./sql/updateNews.php">
+                <form id="form1" name="form1" method="post" action="./sql/updatePolicy.php">
                     <input type="hidden" name="id" id="id" value="<?= $news->id ?>">
                     <table width="100%" cellspacing="0" cellpadding="0">
                         <tr>
-                            <td style="float:left"><a href="info_list.php">[返回]</a></td>
-                            <td style="float:right"><a href="./sql/deleteNews.php?id=<?= $news->id ?>"
+                            <td style="float:left"><a href="policy_list.php">[返回]</a></td>
+                            <td style="float:right"><a href="./sql/deletePolicy.php?id=<?= $news->id ?>"
                                         onclick="if(!confirm('确认删除?')) return false;">[删除]</a>
                             </td>
                         </tr>
@@ -32,7 +32,7 @@ $news = $result->fetch(PDO::FETCH_OBJ);
                     <br/>
                     <table width="100%" border="0" cellpadding="6" cellspacing="0" class="grid">
                         <tr>
-                            <th align="right">新闻标题：</th>
+                            <th align="right">政策标题：</th>
                             <td><input name="title" type="text" id="title" value="<?=$news->title;?>"
                                        size="60"/></td>
                         </tr>
@@ -41,11 +41,11 @@ $news = $result->fetch(PDO::FETCH_OBJ);
                             <td>
                                 <select name="category" id="category" style="height: 20px;">
                                     <?php
-                                    require_once('./sql/newsColumns.php');
+                                    require_once('./sql/policyColumns.php');
                                     while ($res = $result->fetch(PDO::FETCH_OBJ)) {
                                         ?>
                                         <option value="<?= $res->id; ?>"
-                                            <?php if($res->title == $news->category) { ?>
+                                                <?php if($res->title == $news->category) { ?>
                                                 selected="selected"<?php } ?>><?= $res->title; ?></option>
                                     <?php } ?>
                                 </select></td>
