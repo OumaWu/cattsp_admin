@@ -86,7 +86,7 @@ include("admin.php");
                                         <th>操作</th>
                                     </tr>
                                     <?php
-                                    require_once('./sql/newsColumns.php');
+                                    require_once('./sql/policyColumns.php');
                                     while ($res = $result->fetch(PDO::FETCH_OBJ)) {
                                         ?>
                                         <tr>
@@ -124,7 +124,7 @@ include("admin.php");
 
         $.ajax(
             {
-                url: "./sql/newsColumn.php",
+                url: "./sql/policyColumn.php",
                 data: {id: id},
                 type: "POST",
                 dataType: "JSON",
@@ -149,7 +149,7 @@ include("admin.php");
             // 异步提交数据到action/add_action.php页面
             $.ajax(
                 {
-                    url: "./sql/actionNewsCategory.php",
+                    url: "./sql/actionPolicyCategory.php",
                     data: {"form_data": form_data, "action": action},
                     type: "POST",
                     dataType: "JSON",
@@ -183,7 +183,7 @@ include("admin.php");
         else {
             $.ajax(
                 {
-                    url: "./sql/actionNewsCategory.php",
+                    url: "./sql/actionPolicyCategory.php",
                     data: {"id": id, "action": "delete"},
                     type: "POST",
                     dataType: "JSON",
