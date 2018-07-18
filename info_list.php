@@ -14,7 +14,6 @@ include("admin.php");
     <script src="./bootstrap/js/bootstrap.js"></script>
     <script src="./jquery/gobal.js" type="text/javascript"></script>
     <title>中国-东盟太阳能技术转移平台后台管理系统</title>
-    <?php include("./jquery/easyui/style/easyui.php"); ?>
 </head>
 <body class="new">
 <?php include("./style/top.php"); ?>
