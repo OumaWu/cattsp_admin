@@ -49,7 +49,7 @@ include("admin.php");
                         </tr>
                         <tr>
                             <th align="right">&nbsp;</th>
-                            <td><input type="submit" name="button" id="button" value="提交"/></td>
+                            <td><input type="submit" class="btn btn-primary" name="button" id="button" value="提交"/></td>
                         </tr>
                     </table>
                 </form>

@@ -1,5 +1,11 @@
 /* CSS Document */
 
+textarea {
+	margin: 0;
+	padding: 0;
+    border: none;
+}
+
 select {
 	height: 20px;
 }

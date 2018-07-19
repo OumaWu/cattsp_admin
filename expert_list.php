@@ -11,7 +11,7 @@ include("admin.php");
     <link rel="stylesheet" href="./bootstrap/css/templatemo_main.css">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 </head>
-<body class="new">
+<body class="">
 <?php include("./style/top.php"); ?>
 <div id="main-wrapper" style="height: 100%">
     <div class="template-page-wrapper">
@@ -20,9 +20,6 @@ include("admin.php");
 
         <div class="templatemo-content-wrapper">
             <div class="templatemo-content" style="border-left:1px solid #ddd ">
-                <ol class="breadcrumb  alert-info">
-                    <li><a>Tips：请妥善保管管理员资料！</a></li>
-                </ol>
                 <h1>专家账号列表</h1>
                 <div class="table-responsive">
                     <table class="table table-striped table-hover table-bordered">
@@ -48,9 +45,9 @@ include("admin.php");
                                 <td><?= $res->name; ?></td>
                                 <td><?= $res->title; ?></td>
                                 <td><?= $res->domain; ?></td>
-                                <td><a href="./sql/expertEdit.php?id<?= $res->id; ?>" class="btn btn-default">编辑</a>
+                                <td><a href="./expert_edit.php?id=<?= $res->id; ?>" class="btn btn-default">编辑</a>
                                 </td>
-                                <td><a href="./sql/deleteExpert.php?id<?= $res->id; ?>" class="btn btn-link">删除</a></td>
+                                <td><a href="./sql/deleteExpert.php?id=<?= $res->id; ?>" class="btn btn-link">删除</a></td>
                             </tr>
                         <?php } ?>
                         </tbody>
