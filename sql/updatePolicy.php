@@ -26,7 +26,7 @@ if (!empty($_POST["id"]) && !empty($_POST["title"])
             echo "<meta http-equiv=\"refresh\" content=\"0.5;url=$url\">";
         } else {
             $pdo->rollBack();
-            echo "<script> alert('更新政策失败！！\\n'+'{$pdo->errorInfo()}');</script>";
+            echo "<script> alert('更新政策失败！！\\n{$pdo->errorInfo()}');</script>";
             echo "<meta http-equiv=\"refresh\" content=\"0.5;url=$url2\">";
         }
     } catch (PDOException $e) {

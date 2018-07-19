@@ -9,7 +9,7 @@ include("admin.php");
     <meta charset="utf-8">
     <!--[if IE]>
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><![endif]-->
-    <title>广西工业控制网路监测平台</title>
+    <title>中国-东盟太阳能技术转移平台后台管理系统</title>
     <meta name="viewport" content="width=device-width">
     <link rel="stylesheet" href="./bootstrap/css/templatemo_main.css">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
@@ -25,7 +25,6 @@ include("admin.php");
             <div class="templatemo-content" style="border-left:1px solid #ddd ">
                 <ol class="breadcrumb  alert-info">
                     <li><a>Tips：请妥善保管管理员资料！</a></li>
-
                 </ol>
                 <h1>用户列表</h1>
                 <p>Here goes users.</p>
