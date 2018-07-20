@@ -81,9 +81,9 @@ include("admin.php");
                         <tr>
                             <th align="right">个人简介：</th>
                             <td>
-                                <label for="introduction"></label>
+                                <label for="introduction">
                                 <textarea name="introduction" id="introduction" rows="15" cols="100"
-                                          style="overflow: scroll;"></textarea>
+                                          style="overflow: scroll;"></textarea></label>
                             </td>
                         </tr>
                         <tr>

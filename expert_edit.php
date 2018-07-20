@@ -96,9 +96,9 @@ $res = $result->fetch(PDO::FETCH_OBJ);
                         <tr>
                             <th align="right">个人简介：</th>
                             <td>
-                                <label for="introduction"></label>
+                                <label for="introduction">
                                 <textarea name="introduction" id="introduction" rows="15" cols="100"
-                                          style="overflow: scroll;"><?= $res->introduction; ?></textarea>
+                                          style="overflow: scroll;"><?= $res->introduction; ?></textarea></label>
                             </td>
                         </tr>
                         <tr>

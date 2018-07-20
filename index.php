@@ -23,15 +23,14 @@ include("admin.php");
                 <ol class="breadcrumb  alert-info">
                     <li><a>Tips：请妥善保管管理员资料！</a></li>
                 </ol>
-                <h1>用户资料</h1>
-                <p class="margin-bottom-15">用户详细信息添加/修改</p>
+                <h1>管理员资料</h1>
                 <div class="row">
                     <div class="col-md-12">
                         <form role="form" id="templatemo-preferences-form">
                             <div class="row">
                                 <div class="col-md-6 margin-bottom-15">
                                     <label>用户名</label>
-                                    <p class="form-control-static" id="username">admin</p>
+                                    <p class="form-control-static" id="username"><?=$_SESSION["username"];?></p>
                                 </div>
                             </div>
                             <div class="row">
@@ -43,38 +42,8 @@ include("admin.php");
                             <div class="row">
                                 <div class="col-md-6 margin-bottom-15">
                                     <label for="currentPassword">密码</label>
-                                    <input type="password" class="form-control" id="currentPassword" value="********"
-                                           disabled>
+                                    <input type="password" class="form-control" id="currentPassword" value="********">
                                     <button type="submit" class="btn btn-default">修改密码</button>
-                                </div>
-                                <div class="col-md-6 margin-bottom-15"></div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-6 margin-bottom-15">
-                                    <label for="firstName" class="control-label">姓名</label>
-                                    <input type="text" class="form-control" id="firstName" value="管理员">
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-6 margin-bottom-15">
-                                    <label for="lastName" class="control-label">创建日期</label>
-                                    <input class="form-control" id="lastName" value="2015.1.1" disabled="disabled">
-                                </div>
-                                <div class="col-md-6 margin-bottom-15"></div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-6 margin-bottom-15">
-                                    <label for="password_1">联系电话</label>
-                                    <input type="password" class="form-control" id="password_1"
-                                           placeholder="151********">
-                                </div>
-                                <div class="col-md-6 margin-bottom-15"></div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-6 margin-bottom-15">
-                                    <label for="password_2">身份证明</label>
-                                    <input type="password" class="form-control" id="password_2"
-                                           placeholder="410741741***">
                                 </div>
                                 <div class="col-md-6 margin-bottom-15"></div>
                             </div>

@@ -117,5 +117,26 @@ li {
 	font-weight: bold;
 }
 
+.new {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.img-upload {
+	list-style: none;
+}
+.img-upload li{
+	display: inline-block;
+}
+.img-upload li img{
+	height: 120px;
+	width: 180px;
+}
+textarea {
+	margin: 0;
+	padding: 0;
+	border: none;
+}
 
 

@@ -25,7 +25,7 @@ if (checkVCode()) {
 
                     $_SESSION['username'] = $res->username;
                     $_SESSION['id'] = $res->id;
-                    $_SESSION['expiretime'] = time() + 6000; // 刷新时间戳，1小时40分钟
+                    $_SESSION['expire_time'] = time() + 1200; // 刷新时间戳，20分钟
                     echo "<script>alert('登录成功！')</script>";
                 echo "<meta http-equiv=\"refresh\" content=\"0;url=$url_home\">";
                 }

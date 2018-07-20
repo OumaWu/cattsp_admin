@@ -33,7 +33,46 @@ include("admin.php");
                         </tr>
                         <tr>
                             <th width="120" align="right">需求地点：</th>
-                            <td><input name="location" value="" type="text" id="location" size="60"/></td>
+                            <td><label>
+                                    <select name="location" class="form-control" id="location" style="width: 110px;">
+                                        <option value="">-请选择-</option>
+                                        <option value="北京市">北京市</option>
+                                        <option value="天津市">天津市</option>
+                                        <option value="河北省">河北省</option>
+                                        <option value="山西省">山西省</option>
+                                        <option value="内蒙古">内蒙古</option>
+                                        <option value="辽宁省">辽宁省</option>
+                                        <option value="吉林省">吉林省</option>
+                                        <option value="黑龙江">黑龙江</option>
+                                        <option value="上海市">上海市</option>
+                                        <option value="江苏省">江苏省</option>
+                                        <option value="浙江省">浙江省</option>
+                                        <option value="安徽省">安徽省</option>
+                                        <option value="福建省">福建省</option>
+                                        <option value="江西省">江西省</option>
+                                        <option value="山东省">山东省</option>
+                                        <option value="河南省">河南省</option>
+                                        <option value="湖北省">湖北省</option>
+                                        <option value="湖南省">湖南省</option>
+                                        <option value="广东省">广东省</option>
+                                        <option value="广 西">广 西</option>
+                                        <option value="海南省">海南省</option>
+                                        <option value="重庆市">重庆市</option>
+                                        <option value="四川省">四川省</option>
+                                        <option value="贵州省">贵州省</option>
+                                        <option value="云南省">云南省</option>
+                                        <option value="西 藏">西 藏</option>
+                                        <option value="陕西省">陕西省</option>
+                                        <option value="甘肃省">甘肃省</option>
+                                        <option value="青海省">青海省</option>
+                                        <option value="宁 夏">宁 夏</option>
+                                        <option value="新 疆">新 疆</option>
+                                        <option value="台湾省">台湾省</option>
+                                        <option value="香 港">香 港</option>
+                                        <option value="澳 门">澳 门</option>
+                                        <option value="海外">海外</option>
+                                    </select>
+                                </label></td>
                         </tr>
                         <tr>
                             <th width="120" align="right">联系邮箱：</th>
@@ -42,15 +81,16 @@ include("admin.php");
                         <tr>
                             <th align="right">需求简介：</th>
                             <td>
-                                <label for="description"></label>
+                                <label for="description">
                                 <textarea name="description" id="description" rows="15" cols="100"
-                                          style="overflow: scroll;"></textarea>
+                                          style="overflow: scroll;"></textarea></label>
                             </td>
                         </tr>
                         <tr>
                             <th width="120" align="right">发布的用户账号：</th>
                             <td>
                                 <select class="form-control" name="user_id" id="user_id" style="width: 150px;">
+                                    <option value="">请选择用户</option>
                                     <?
                                     require_once('./sql/selectUsername.php');
                                     while ($user = $result->fetch(PDO::FETCH_OBJ)) {
