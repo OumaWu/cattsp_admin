@@ -20,7 +20,7 @@ $res = $result->fetch(PDO::FETCH_OBJ);
     <table class="table-hober" width="90%" align="center" border="0" cellspacing="0" cellpadding="6">
         <tr>
             <td>
-                <h1>添加专家账号</h1>
+                <h1>编辑专家账号</h1>
                 <form id="form1" name="form1" method="post" action="./sql/updateExpert.php"
                       enctype="multipart/form-data">
                     <!--                    <table width="100%" cellspacing="0" cellpadding="0">-->

@@ -10,16 +10,8 @@ include("admin.php");
     <meta name="viewport" content="width=device-width">
     <link rel="stylesheet" href="./bootstrap/css/templatemo_main.css">
     <link href="./bootstrap/css/my.css" rel="stylesheet" type="text/css">
-    <!--    <style>-->
-    <!--        .templatemo-sidebar-menu li {-->
-    <!--            border-bottom: 1px solid #ddd;-->
-    <!--        }-->
-    <!--        .templatemo-sidebar-menu li {-->
-    <!--            border-bottom: 1px solid #ddd;-->
-    <!--        }-->
-    <!--    </style>-->
 </head>
-<body class="new">
+<body class="">
 <?php include("./style/top.php"); ?>
 <div id="main-wrapper">
     <div class="template-page-wrapper">

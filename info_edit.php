@@ -39,7 +39,7 @@ $news = $result->fetch(PDO::FETCH_OBJ);
                         <tr>
                             <th align="right"><label for="category">类别：</label></th>
                             <td>
-                                <select name="category" id="category" style="height: 20px;">
+                                <select class="form-control" name="category" id="category" style="width: 150px;">
                                     <?php
                                     require_once('./sql/newsColumns.php');
                                     while ($res = $result->fetch(PDO::FETCH_OBJ)) {
