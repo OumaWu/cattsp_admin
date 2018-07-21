@@ -12,11 +12,12 @@ include("admin.php");
     <title>中国-东盟太阳能技术转移平台后台管理系统</title>
     <meta name="viewport" content="width=device-width">
     <link rel="stylesheet" href="./bootstrap/css/templatemo_main.css">
+    <link rel="stylesheet" href="./bootstrap/css/tab.css">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 </head>
 <body class="new">
 <?php include("./style/top.php"); ?>
-<div id="main-wrapper">
+<div id="main-wrapper" style="min-height: 100%;">
     <div class="template-page-wrapper">
         <?php include("./style/side_nav.php"); ?>
         <!--/.navbar-collapse -->
@@ -26,388 +27,143 @@ include("admin.php");
                 <ol class="breadcrumb  alert-info">
                     <li><a>Tips：请妥善保管管理员资料！</a></li>
                 </ol>
-                <h1>用户列表</h1>
-                <p>Here goes users.</p>
-
-                <div class="row margin-bottom-30">
-                    <div class="col-md-12">
-                        <ul class="nav nav-pills">
-                            <li class="active"><a href="#">一类用户 <span class="badge">42</span></a></li>
-                            <li><a href="#">二类用户<span class="badge">107</span></a></li>
-
-                        </ul>
-                    </div>
-                </div>
+                <h1>账号列表</h1>
                 <div class="row">
                     <div class="col-md-12">
+                        <div class="widget">
+                            <div class="widget-list" id="admins">
+                                <div class="table-responsive">
+                                    <table class="table table-striped table-hover table-bordered">
+                                        <thead>
+                                        <tr>
+                                            <th>编号</th>
+                                            <th>账号名</th>
+                                            <th>权限</th>
+                                            <th>编辑</th>
+                                            <th>删除</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <?php
+                                        require('./sql/adminList.php');
+                                        while ($admin = $result->fetch(PDO::FETCH_OBJ)) {
+                                        ?>
+                                        <tr>
+                                            <td><?= $admin->id; ?></td>
+                                            <td><?= $admin->username; ?></td>
+                                            <td><?= $admin->level == 1 ? "超管" : "普通管理员"; ?></td>
+                                            <td><a href="#" class="btn btn-default">编辑</a></td>
+<!--                                            <td>-->
+                                                <!-- Split button -->
+<!--                                                <div class="btn-group">-->
+<!--                                                    <button type="button" class="btn btn-default">类别</button>-->
+<!--                                                    <button type="button" class="btn btn-default dropdown-toggle"-->
+<!--                                                            data-toggle="dropdown">-->
+<!--                                                        <span class="caret"></span>-->
+<!--                                                        <span class="sr-only">Toggle Dropdown</span>-->
+<!--                                                    </button>-->
+<!--                                                    <ul class="dropdown-menu" style="background-color:#FFFFFF; "-->
+<!--                                                        role="menu">-->
+<!--                                                        <li><a href="#">一类用户</a></li>-->
+<!--                                                        <li><a href="#">二类用户</a></li>-->
+<!---->
+<!--                                                    </ul>-->
+<!--                                                </div>-->
+<!--                                            </td>-->
+                                            <td><a href="#" class="btn btn-primary">删除</a></td>
+                                        </tr>
+                                        <?php } ?>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="widget-list" id="users">
 
-                        <div class="table-responsive">
-                            <h4 class="margin-bottom-15">一类用户</h4>
-                            <table class="table table-striped table-hover table-bordered">
-                                <thead>
-                                <tr>
-                                    <th></th>
-                                    <th>姓名</th>
-                                    <th>籍贯</th>
-                                    <th>用户名</th>
-                                    <th>邮箱</th>
-                                    <th>编辑</th>
-                                    <th>权限</th>
-                                    <th>删除</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                <tr>
-                                    <td>1</td>
-                                    <td>John</td>
-                                    <td>广西南宁</td>
-                                    <td>@js</td>
-                                    <td>a@company.com</td>
-                                    <td><a href="#" class="btn btn-default">编辑</a></td>
-                                    <td>
-                                        <!-- Split button -->
-                                        <div class="btn-group">
-                                            <button type="button" class="btn btn-default">类别</button>
-                                            <button type="button" class="btn btn-default dropdown-toggle"
-                                                    data-toggle="dropdown">
-                                                <span class="caret"></span>
-                                                <span class="sr-only">Toggle Dropdown</span>
-                                            </button>
-                                            <ul class="dropdown-menu" style="background-color:#FFFFFF; " role="menu">
-                                                <li><a href="#">一类用户</a></li>
-                                                <li><a href="#">二类用户</a></li>
-
-                                            </ul>
-                                        </div>
-                                    </td>
-                                    <td><a href="#" class="btn btn-link">删除</a></td>
-                                </tr>
-                                <tr class="success">
-                                    <td>2</td>
-                                    <td>Bill</td>
-                                    <td>广西南宁</td>
-                                    <td>@bd</td>
-                                    <td>bd@company.com</td>
-                                    <td><a href="#" class="btn btn-default">编辑</a></td>
-                                    <td>
-                                        <!-- Split button -->
-                                        <div class="btn-group">
-                                            <button type="button" class="btn btn-default">类别</button>
-                                            <button type="button" class="btn btn-default dropdown-toggle"
-                                                    data-toggle="dropdown">
-                                                <span class="caret"></span>
-                                                <span class="sr-only">Toggle Dropdown</span>
-                                            </button>
-                                            <ul class="dropdown-menu" role="menu">
-                                                <li><a href="#">一类用户</a></li>
-                                                <li><a href="#">二类用户</a></li>
-
-                                            </ul>
-                                        </div>
-                                    </td>
-                                    <td><a href="#" class="btn btn-link">删除</a></td>
-                                </tr>
-                                <tr>
-                                    <td>3</td>
-                                    <td>Marry</td>
-                                    <td>广西南宁</td>
-                                    <td>@mj</td>
-                                    <td>mj@company.com</td>
-                                    <td><a href="#" class="btn btn-default">编辑</a></td>
-                                    <td>
-                                        <!-- Split button -->
-                                        <div class="btn-group">
-                                            <button type="button" class="btn btn-default">类别</button>
-                                            <button type="button" class="btn btn-default dropdown-toggle"
-                                                    data-toggle="dropdown">
-                                                <span class="caret"></span>
-                                                <span class="sr-only">Toggle Dropdown</span>
-                                            </button>
-                                            <ul class="dropdown-menu" role="menu">
-                                                <li><a href="#">一类用户</a></li>
-                                                <li><a href="#">二类用户</a></li>
-
-                                            </ul>
-                                        </div>
-                                    </td>
-                                    <td><a href="#" class="btn btn-link">删除</a></td>
-                                </tr>
-                                <tr>
-                                    <td>4</td>
-                                    <td>Carry</td>
-                                    <td>广西南宁</td>
-                                    <td>@cl</td>
-                                    <td>cl@company.com</td>
-                                    <td><a href="#" class="btn btn-default">编辑</a></td>
-                                    <td>
-                                        <!-- Split button -->
-                                        <div class="btn-group">
-                                            <button type="button" class="btn btn-default">类别</button>
-                                            <button type="button" class="btn btn-default dropdown-toggle"
-                                                    data-toggle="dropdown">
-                                                <span class="caret"></span>
-                                                <span class="sr-only">Toggle Dropdown</span>
-                                            </button>
-                                            <ul class="dropdown-menu" role="menu">
-                                                <li><a href="#">一类用户</a></li>
-                                                <li><a href="#">二类用户</a></li>
-
-                                            </ul>
-                                        </div>
-                                    </td>
-                                    <td><a href="#" class="btn btn-link">删除</a></td>
-                                </tr>
-                                <tr class="success">
-                                    <td>5</td>
-                                    <td>New</td>
-                                    <td>广西南宁</td>
-                                    <td>@nc</td>
-                                    <td>nc@company.com</td>
-                                    <td><a href="#" class="btn btn-default">编辑</a></td>
-                                    <td>
-                                        <!-- Split button -->
-                                        <div class="btn-group">
-                                            <button type="button" class="btn btn-default">类别</button>
-                                            <button type="button" class="btn btn-default dropdown-toggle"
-                                                    data-toggle="dropdown">
-                                                <span class="caret"></span>
-                                                <span class="sr-only">Toggle Dropdown</span>
-                                            </button>
-                                            <ul class="dropdown-menu" role="menu">
-                                                <li><a href="#">一类用户</a></li>
-                                                <li><a href="#">二类用户</a></li>
-                                            </ul>
-                                        </div>
-                                    </td>
-                                    <td><a href="#" class="btn btn-link">删除</a></td>
-                                </tr>
-                                <tr class="danger">
-                                    <td>6</td>
-                                    <td>Martin</td>
-                                    <td>广西南宁</td>
-                                    <td>@me</td>
-                                    <td>me@company.com</td>
-                                    <td><a href="#" class="btn btn-default">编辑</a></td>
-                                    <td>
-                                        <!-- Split button -->
-                                        <div class="btn-group">
-                                            <button type="button" class="btn btn-default">类别</button>
-                                            <button type="button" class="btn btn-default dropdown-toggle"
-                                                    data-toggle="dropdown">
-                                                <span class="caret"></span>
-                                                <span class="sr-only">Toggle Dropdown</span>
-                                            </button>
-                                            <ul class="dropdown-menu" role="menu">
-                                                <li><a href="#">一类用户</a></li>
-                                                <li><a href="#">二类用户</a></li>
-                                            </ul>
-                                        </div>
-                                    </td>
-                                    <td><a href="#" class="btn btn-link">删除</a></td>
-                                </tr>
-                                </tbody>
-                            </table>
+                                <!-- 企业账号列表 -->
+                                <div class="table-responsive">
+                                    <table class="table table-striped table-hover table-bordered">
+                                        <thead>
+                                        <tr>
+                                            <th>编号</th>
+                                            <th>用户名</th>
+                                            <th>真实姓名</th>
+                                            <th>所在地</th>
+                                            <th>邮箱</th>
+                                            <th>编辑</th>
+                                            <th>删除</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <?php
+                                        require('./sql/userList.php');
+                                        while ($user = $result->fetch(PDO::FETCH_OBJ)) {
+                                        ?>
+                                        <tr>
+                                            <td><?= $user->id; ?></td>
+                                            <td><?= $user->accountname; ?></td>
+                                            <td><?= $user->realname; ?></td>
+                                            <td><?= $user->location; ?></td>
+                                            <td><?= $user->email; ?></td>
+                                            <td><a href="user_edit.php?id=<?= $user->id; ?>" class="btn btn-default">编辑</a></td>
+                                            <td><a href="./sql/deleteUser.php?id=<?= $user->id; ?>" class="btn btn-primary">删除</a></td>
+                                        </tr>
+                                        <?php } ?>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <ul class="widget-tabs">
+                                <!-- Omitting the end tag is valid HTML and removes the space in-between inline blocks. -->
+                                <li class="widget-tab">
+                                    <a href="#admins" class="widget-tab-link">管理员账号</a>
+                                <li class="widget-tab">
+                                    <a href="#users" class="widget-tab-link">企业账号</a>
+                            </ul>
                         </div>
-                        <div class="table-responsive">
-                            <h4 class="margin-bottom-15">二类用户</h4>
-                            <table class="table table-striped table-hover table-bordered">
-                                <thead>
-                                <tr>
-                                    <th></th>
-                                    <th>姓名</th>
-                                    <th>籍贯</th>
-                                    <th>用户名</th>
-                                    <th>邮箱</th>
-                                    <th>编辑</th>
-                                    <th>权限</th>
-                                    <th>删除</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                <tr>
-                                    <td>1</td>
-                                    <td>John</td>
-                                    <td>广西南宁</td>
-                                    <td>@jh</td>
-                                    <td>a@company.com</td>
-                                    <td><a href="#" class="btn btn-default">编辑</a></td>
-                                    <td>
-                                        <!-- Split button -->
-                                        <div class="btn-group">
-                                            <button type="button" class="btn btn-default">类别</button>
-                                            <button type="button" class="btn btn-default dropdown-toggle"
-                                                    data-toggle="dropdown">
-                                                <span class="caret"></span>
-                                                <span class="sr-only">Toggle Dropdown</span>
-                                            </button>
-                                            <ul class="dropdown-menu" role="menu">
-                                                <li><a href="#">一类用户</a></li>
-                                                <li><a href="#">二类用户</a></li>
 
-                                            </ul>
-                                        </div>
-                                    </td>
-                                    <td><a href="#" class="btn btn-link">删除</a></td>
-                                </tr>
-                                <tr>
-                                    <td>2</td>
-                                    <td>Bill</td>
-                                    <td>广西南宁</td>
-                                    <td>@bg</td>
-                                    <td>bg@company.com</td>
-                                    <td><a href="#" class="btn btn-default">编辑</a></td>
-                                    <td>
-                                        <div class="btn-group">
-                                            <button type="button" class="btn btn-default">类别</button>
-                                            <button type="button" class="btn btn-default dropdown-toggle"
-                                                    data-toggle="dropdown">
-                                                <span class="caret"></span>
-                                                <span class="sr-only">Toggle Dropdown</span>
-                                            </button>
-                                            <ul class="dropdown-menu" role="menu">
-                                                <li><a href="#">一类用户</a></li>
-                                                <li><a href="#">二类用户</a></li>
-                                            </ul>
-                                        </div>
-                                    </td>
-                                    <td><a href="#" class="btn btn-link">删除</a></td>
-                                </tr>
-                                <tr>
-                                    <td>3</td>
-                                    <td>Authen</td>
-                                    <td>广西南宁</td>
-                                    <td>@aj</td>
-                                    <td>aj@company.com</td>
-                                    <td><a href="#" class="btn btn-default">编辑</a></td>
-                                    <td>
-                                        <!-- Split button -->
-                                        <div class="btn-group">
-                                            <button type="button" class="btn btn-default">类别</button>
-                                            <button type="button" class="btn btn-default dropdown-toggle"
-                                                    data-toggle="dropdown">
-                                                <span class="caret"></span>
-                                                <span class="sr-only">Toggle Dropdown</span>
-                                            </button>
-                                            <ul class="dropdown-menu" role="menu">
-                                                <li><a href="#">一类用户</a></li>
-                                                <li><a href="#">二类用户</a></li>
-                                            </ul>
-                                        </div>
-                                    </td>
-                                    <td><a href="#" class="btn btn-link">删除</a></td>
-                                </tr>
-                                <tr>
-                                    <td>4</td>
-                                    <td>Jesica</td>
-                                    <td>广西南宁</td>
-                                    <td>@jh</td>
-                                    <td>jh@company.com</td>
-                                    <td><a href="#" class="btn btn-default">编辑</a></td>
-                                    <td>
-                                        <!-- Split button -->
-                                        <div class="btn-group">
-                                            <button type="button" class="btn btn-default">类别</button>
-                                            <button type="button" class="btn btn-default dropdown-toggle"
-                                                    data-toggle="dropdown">
-                                                <span class="caret"></span>
-                                                <span class="sr-only">Toggle Dropdown</span>
-                                            </button>
-                                            <ul class="dropdown-menu" role="menu">
-                                                <li><a href="#">一类用户</a></li>
-                                                <li><a href="#">二类用户</a></li>
-
-                                            </ul>
-                                        </div>
-                                    </td>
-                                    <td><a href="#" class="btn btn-link">删除</a></td>
-                                </tr>
-                                <tr>
-                                    <td>5</td>
-                                    <td>Tom</td>
-                                    <td>广西南宁</td>
-                                    <td>@tg</td>
-                                    <td>tg@company.com</td>
-                                    <td><a href="#" class="btn btn-default">编辑</a></td>
-                                    <td>
-                                        <!-- Split button -->
-                                        <div class="btn-group">
-                                            <button type="button" class="btn btn-default">类别</button>
-                                            <button type="button" class="btn btn-default dropdown-toggle"
-                                                    data-toggle="dropdown">
-                                                <span class="caret"></span>
-                                                <span class="sr-only">Toggle Dropdown</span>
-                                            </button>
-                                            <ul class="dropdown-menu" role="menu">
-                                                <li><a href="#">一类用户</a></li>
-                                                <li><a href="#">二类用户</a></li>
-
-                                            </ul>
-                                        </div>
-                                    </td>
-                                    <td><a href="#" class="btn btn-link">删除</a></td>
-                                </tr>
-                                <tr>
-                                    <td>6</td>
-                                    <td>Book</td>
-                                    <td>广西南宁</td>
-                                    <td>@br</td>
-                                    <td>br@company.com</td>
-                                    <td><a href="#" class="btn btn-default">编辑</a></td>
-                                    <td>
-                                        <!-- Split button -->
-                                        <div class="btn-group">
-                                            <button type="button" class="btn btn-default">类别</button>
-                                            <button type="button" class="btn btn-default dropdown-toggle"
-                                                    data-toggle="dropdown">
-                                                <span class="caret"></span>
-                                                <span class="sr-only">Toggle Dropdown</span>
-                                            </button>
-                                            <ul class="dropdown-menu" role="menu">
-                                                <li><a href="#">一类用户</a></li>
-                                                <li><a href="#">二类用户</a></li>
-
-                                            </ul>
-                                        </div>
-                                    </td>
-                                    <td><a href="#" class="btn btn-link">删除</a></td>
-                                </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                        <ul class="pagination pull-right">
-                            <li class="disabled"><a href="#">&laquo;</a></li>
-                            <li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>
-                            <li><a href="#">2 <span class="sr-only">(current)</span></a></li>
-                            <li><a href="#">3 <span class="sr-only">(current)</span></a></li>
-                            <li><a href="#">4 <span class="sr-only">(current)</span></a></li>
-                            <li><a href="#">5 <span class="sr-only">(current)</span></a></li>
-                            <li><a href="#">&raquo;</a></li>
-                        </ul>
                     </div>
+                </div>
+                <div class="modal-footer">
+                    <ul class="pagination pull-left">
+                        <li class="active">
+                            <a href="user_add.php" class="btn btn-primary" style="cursor: pointer">添加</a>
+                        </li>
+                    </ul>
+                    <ul class="pagination pull-right">
+                        <li class="disabled"><a href="#">&laquo;</a></li>
+                        <li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>
+                        <li><a href="#">2 <span class="sr-only">(current)</span></a></li>
+                        <li><a href="#">3 <span class="sr-only">(current)</span></a></li>
+                        <li><a href="#">4 <span class="sr-only">(current)</span></a></li>
+                        <li><a href="#">5 <span class="sr-only">(current)</span></a></li>
+                        <li><a href="#">&raquo;</a></li>
+                    </ul>
                 </div>
             </div>
         </div>
-
-        <!-- Modal -->
-        <div class="modal fade" id="confirmModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
-             aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span
-                                    class="sr-only">Close</span></button>
-                        <h4 class="modal-title" id="myModalLabel">确定注销登录?</h4>
-                    </div>
-                    <div class="modal-footer">
-                        <a href="logout.php" class="btn btn-primary">是</a>
-                        <button type="button" class="btn btn-default" data-dismiss="modal">否</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-
     </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="confirmModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span
+                                aria-hidden="true">&times;</span><span
+                                class="sr-only">Close</span></button>
+                    <h4 class="modal-title" id="myModalLabel">确定注销登录?</h4>
+                </div>
+                <div class="modal-footer">
+                    <a href="logout.php" class="btn btn-primary">是</a>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">否</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>
 </div>
 <?php include("./style/foot.php"); ?>
 <script src="./bootstrap/js/jquery.min.js"></script>
