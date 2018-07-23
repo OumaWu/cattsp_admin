@@ -5,6 +5,7 @@ include("admin.php");
 
 
 <!DOCTYPE html>
+<html lang="en">
 <head>
     <meta charset="utf-8">
     <!--[if IE]>
@@ -24,9 +25,6 @@ include("admin.php");
 
         <div class="templatemo-content-wrapper">
             <div class="templatemo-content" style="border-left:1px solid #ddd ">
-                <ol class="breadcrumb  alert-info">
-                    <li><a>Tips：请妥善保管管理员资料！</a></li>
-                </ol>
                 <h1>账号列表</h1>
                 <div class="row">
                     <div class="col-md-12">
@@ -47,31 +45,31 @@ include("admin.php");
                                         <?php
                                         require('./sql/adminList.php');
                                         while ($admin = $result->fetch(PDO::FETCH_OBJ)) {
-                                        ?>
-                                        <tr>
-                                            <td><?= $admin->id; ?></td>
-                                            <td><?= $admin->username; ?></td>
-                                            <td><?= $admin->level == 1 ? "超管" : "普通管理员"; ?></td>
-                                            <td><a href="#" class="btn btn-default">编辑</a></td>
-<!--                                            <td>-->
+                                            ?>
+                                            <tr>
+                                                <td><?= $admin->id; ?></td>
+                                                <td><?= $admin->username; ?></td>
+                                                <td><?= $admin->level == 1 ? "超管" : "普通管理员"; ?></td>
+                                                <td><a href="#" class="btn btn-default">编辑</a></td>
+                                                <!--                                            <td>-->
                                                 <!-- Split button -->
-<!--                                                <div class="btn-group">-->
-<!--                                                    <button type="button" class="btn btn-default">类别</button>-->
-<!--                                                    <button type="button" class="btn btn-default dropdown-toggle"-->
-<!--                                                            data-toggle="dropdown">-->
-<!--                                                        <span class="caret"></span>-->
-<!--                                                        <span class="sr-only">Toggle Dropdown</span>-->
-<!--                                                    </button>-->
-<!--                                                    <ul class="dropdown-menu" style="background-color:#FFFFFF; "-->
-<!--                                                        role="menu">-->
-<!--                                                        <li><a href="#">一类用户</a></li>-->
-<!--                                                        <li><a href="#">二类用户</a></li>-->
-<!---->
-<!--                                                    </ul>-->
-<!--                                                </div>-->
-<!--                                            </td>-->
-                                            <td><a href="#" class="btn btn-primary">删除</a></td>
-                                        </tr>
+                                                <!--                                                <div class="btn-group">-->
+                                                <!--                                                    <button type="button" class="btn btn-default">类别</button>-->
+                                                <!--                                                    <button type="button" class="btn btn-default dropdown-toggle"-->
+                                                <!--                                                            data-toggle="dropdown">-->
+                                                <!--                                                        <span class="caret"></span>-->
+                                                <!--                                                        <span class="sr-only">Toggle Dropdown</span>-->
+                                                <!--                                                    </button>-->
+                                                <!--                                                    <ul class="dropdown-menu" style="background-color:#FFFFFF; "-->
+                                                <!--                                                        role="menu">-->
+                                                <!--                                                        <li><a href="#">一类用户</a></li>-->
+                                                <!--                                                        <li><a href="#">二类用户</a></li>-->
+                                                <!---->
+                                                <!--                                                    </ul>-->
+                                                <!--                                                </div>-->
+                                                <!--                                            </td>-->
+                                                <td><a href="#" class="btn btn-primary">删除</a></td>
+                                            </tr>
                                         <?php } ?>
                                         </tbody>
                                     </table>
@@ -97,16 +95,18 @@ include("admin.php");
                                         <?php
                                         require('./sql/userList.php');
                                         while ($user = $result->fetch(PDO::FETCH_OBJ)) {
-                                        ?>
-                                        <tr>
-                                            <td><?= $user->id; ?></td>
-                                            <td><?= $user->accountname; ?></td>
-                                            <td><?= $user->realname; ?></td>
-                                            <td><?= $user->location; ?></td>
-                                            <td><?= $user->email; ?></td>
-                                            <td><a href="user_edit.php?id=<?= $user->id; ?>" class="btn btn-default">编辑</a></td>
-                                            <td><a href="./sql/deleteUser.php?id=<?= $user->id; ?>" class="btn btn-primary">删除</a></td>
-                                        </tr>
+                                            ?>
+                                            <tr>
+                                                <td><?= $user->id; ?></td>
+                                                <td><?= $user->accountname; ?></td>
+                                                <td><?= $user->realname; ?></td>
+                                                <td><?= $user->location; ?></td>
+                                                <td><?= $user->email; ?></td>
+                                                <td><a href="user_edit.php?id=<?= $user->id; ?>"
+                                                       class="btn btn-default">编辑</a></td>
+                                                <td><a href="./sql/deleteUser.php?id=<?= $user->id; ?>"
+                                                       class="btn btn-primary">删除</a></td>
+                                            </tr>
                                         <?php } ?>
                                         </tbody>
                                     </table>
@@ -126,7 +126,7 @@ include("admin.php");
                 <div class="modal-footer">
                     <ul class="pagination pull-left">
                         <li class="active">
-                            <a href="user_add.php" class="btn btn-primary" style="cursor: pointer">添加</a>
+                            <a href="user_add.php" id="btn-add" class="btn btn-primary" style="cursor: pointer">添加</a>
                         </li>
                     </ul>
                     <ul class="pagination pull-right">
@@ -164,10 +164,21 @@ include("admin.php");
 
 
 </div>
-</div>
 <?php include("./style/foot.php"); ?>
 <script src="./bootstrap/js/jquery.min.js"></script>
 <script src="./bootstrap/js/bootstrap.min.js"></script>
 <script src="./bootstrap/js/templatemo_script.js"></script>
+<script>
+    //绑定管理员账号表格和企业账号表格切换时添加按钮所对应的不同的添加页面
+    $(window).bind('hashchange', function() {
+        //code
+        if(location.hash.slice(1).localeCompare("admins")==0) {
+            $("#btn-add").attr("href","admin_add.php");
+        }
+        else {
+            $("#btn-add").attr("href","user_add.php");
+        }
+    });
+</script>
 </body>
 </html>

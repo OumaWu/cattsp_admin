@@ -1,53 +1,49 @@
 <?php
-define('FILE_UPLOAD_PATH', "{$_SERVER['DOCUMENT_ROOT']}/cattsp/user_files/expert/");
-$url = "../expert_list.php";
+define('FILE_UPLOAD_PATH', "{$_SERVER['DOCUMENT_ROOT']}/cattsp/user_files/avatar/");
+$url = "../user_list.php";
 $url2 = $_SERVER["HTTP_REFERER"];
 $accountname = $_POST["accountname"];
 $password = $_POST["password"];
-$name = $_POST["name"];
-$title = $_POST["title"];
+$realname = $_POST["realname"];
+$sex = $_POST["sex"];
+$tel = $_POST["tel"];
+$email = $_POST["email"];
 $location = $_POST["location"];
-$career_age = $_POST["career_age"];
-$degree = $_POST["degree"];
-$institute = $_POST["institute"];
-$domain = $_POST["domain"];
-$speciality = $_POST["speciality"];
-$introduction = $_POST["introduction"];
+$address = $_POST["address"];
 $photo = (string)$_FILES['photo']['name'];
 
 
-if (!empty($accountname) && !empty($password) && !empty($name) && !empty($title) && !empty($location) && !empty($career_age)
-    && !empty($degree) && !empty($institute) && !empty($domain) && !empty($speciality) && !empty($introduction)){
+if (!empty($accountname) && !empty($password) && !empty($realname) && isset($sex) && !empty($tel)
+    && !empty($email) && !empty($location) && !empty($address)){
 
     include("connection.php");
 
     //加密密码
     $password = password_hash($password, PASSWORD_DEFAULT);
 
-    //加密图片
-    if (!empty($photo)) {
+    if(!empty($photo)) {
         //获取后缀名
         $img_ext = substr($photo, strrpos($photo, '.'));
 
         // 加密图片名
         $photo = $accountname . hash_file('md5', $_FILES['photo']["tmp_name"]) . $img_ext;
     }
-    else $photo = NULL;
 
-    $sql = "INSERT INTO `specialists` (`id`, `accountname`, `password`, `name`, `title`, "
-        ."`location`, `career_age`, `degree`, `institute`, `domain`, `speciality`, `introduction`, `photo`) "
-        . "VALUES (NULL, '{$accountname}', '{$password}', '{$name}', '{$title}', '{$location}', '{$career_age}', "
-        ."'{$degree}', '{$institute}', '{$domain}', '{$speciality}', '{$introduction}', '{$photo}')";
+
+    $sql = "INSERT INTO `users` (`id`, `accountname`, `realname`, `password`, `sex`, `tel`, `email`,"
+        ." `location`, `address`, `photo`) "
+        . "VALUES (NULL, '{$accountname}', '{$realname}', '{$password}', '{$sex}', '{$tel}', '{$email}', "
+        ."'{$location}', '{$address}', '{$photo}')";
     try {
         $pdo->beginTransaction();
         $result = $pdo->prepare($sql);
-        if ($result->execute() &&uploadImg($photo) ) {
+        if ($result->execute() && uploadImg($photo) ) {
             $pdo->commit();
-            echo "<script> alert('添加专家账号成功！！');</script>";
+            echo "<script> alert('添加企业账号成功！！');</script>";
             echo "<meta http-equiv=\"refresh\" content=\"0.5;url={$url}\">";
         } else {
             $pdo->rollBack();
-            echo "<script> alert('添加专家账号失败！！\\n{$pdo->errorInfo()}');</script>";
+            echo "<script> alert('添加企业账号失败！！\\n{$pdo->errorInfo()}');</script>";
             echo "<meta http-equiv=\"refresh\" content=\"0.5;url={$url2}\">";
         }
     } catch (PDOException $e) {
