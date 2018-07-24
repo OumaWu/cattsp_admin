@@ -8,14 +8,14 @@ $server = "local";
 /* assign array values to variables */
 $type = $db[$server]["type"];
 $host = $db[$server]["host"];
-$username = $db[$server]["username"];
+$usr = $db[$server]["username"];
 $pwd = $db[$server]["pwd"];
 $dbname = $db[$server]["db"];
 $dsn = "$type:host=$host;dbname=$dbname";
 $sql = "SET NAMES utf8";
 global $pdo;
 try {
-    $pdo = new PDO($dsn, $username, $pwd);
+    $pdo = new PDO($dsn, $usr, $pwd);
     $result = $pdo->prepare($sql);
     $result->execute();
     //echo "pdo连接mysql成功!";

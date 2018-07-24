@@ -45,7 +45,8 @@ include("admin.php");
                                 <td><?= $res->date; ?></td>
                                 <td><a href="./demand_edit.php?id=<?= $res->id; ?>" class="btn btn-default">编辑</a>
                                 </td>
-                                <td><a href="./sql/deleteDemand.php?id=<?= $res->id; ?>" class="btn btn-primary" onclick="confirm('确定要删除吗？')">删除</a></td>
+                                <td><a href="./sql/deleteDemand.php?id=<?= $res->id; ?>" class="btn btn-primary"
+                                       onclick="if(!confirm('确定要删除吗？')) return false;">删除</a></td>
                             </tr>
                         <?php } ?>
                         </tbody>

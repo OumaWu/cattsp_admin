@@ -50,25 +50,11 @@ include("admin.php");
                                                 <td><?= $admin->id; ?></td>
                                                 <td><?= $admin->username; ?></td>
                                                 <td><?= $admin->level == 1 ? "超管" : "普通管理员"; ?></td>
-                                                <td><a href="#" class="btn btn-default">编辑</a></td>
-                                                <!--                                            <td>-->
-                                                <!-- Split button -->
-                                                <!--                                                <div class="btn-group">-->
-                                                <!--                                                    <button type="button" class="btn btn-default">类别</button>-->
-                                                <!--                                                    <button type="button" class="btn btn-default dropdown-toggle"-->
-                                                <!--                                                            data-toggle="dropdown">-->
-                                                <!--                                                        <span class="caret"></span>-->
-                                                <!--                                                        <span class="sr-only">Toggle Dropdown</span>-->
-                                                <!--                                                    </button>-->
-                                                <!--                                                    <ul class="dropdown-menu" style="background-color:#FFFFFF; "-->
-                                                <!--                                                        role="menu">-->
-                                                <!--                                                        <li><a href="#">一类用户</a></li>-->
-                                                <!--                                                        <li><a href="#">二类用户</a></li>-->
-                                                <!---->
-                                                <!--                                                    </ul>-->
-                                                <!--                                                </div>-->
-                                                <!--                                            </td>-->
-                                                <td><a href="#" class="btn btn-primary">删除</a></td>
+                                                <td><a href="./admin_edit.php?id=<?= $admin->id; ?>" class="btn btn-default"
+                                                        <?=$_SESSION["level"] != 1 ? "disabled" : ""; ?>>编辑</a></td>
+                                                <td><a href="./sql/deleteAdmin.php?id=<?= $admin->id; ?>" class="btn btn-primary"
+                                                        <?=$_SESSION["level"] != 1 ? "disabled" : ""; ?>
+                                                       onclick="if(!confirm('确定要删除吗？')) return false;">删除</a></td>
                                             </tr>
                                         <?php } ?>
                                         </tbody>
@@ -106,7 +92,7 @@ include("admin.php");
                                                        class="btn btn-default">编辑</a></td>
                                                 <td><a href="./sql/deleteUser.php?id=<?= $user->id; ?>"
                                                        class="btn btn-primary"
-                                                       onclick="confirm('确定要删除吗？')">删除</a></td>
+                                                       onclick="if(!confirm('确定要删除吗？')) return false;">删除</a></td>
                                             </tr>
                                         <?php } ?>
                                         </tbody>
@@ -170,6 +156,16 @@ include("admin.php");
 <script src="./bootstrap/js/bootstrap.min.js"></script>
 <script src="./bootstrap/js/templatemo_script.js"></script>
 <script>
+
+    $(document).ready(function(){
+        if(location.hash.slice(1).localeCompare("admins")==0) {
+            $("#btn-add").attr("href","admin_add.php");
+        }
+        else {
+            $("#btn-add").attr("href","user_add.php");
+        }
+    });
+
     //绑定管理员账号表格和企业账号表格切换时添加按钮所对应的不同的添加页面
     $(window).bind('hashchange', function() {
         //code
@@ -180,6 +176,19 @@ include("admin.php");
             $("#btn-add").attr("href","user_add.php");
         }
     });
+
+    if (<?=$_SESSION["level"];?>!=1) {
+        $("a.btn-primary").click(function() {
+            alert("您的权限不足，请登录超级管理员账号！！");
+            return false;
+        });
+        $("a.btn-default").click(function() {
+            alert("您的权限不足，请登录超级管理员账号！！");
+            return false;
+        });
+    }
+
+
 </script>
 </body>
 </html>

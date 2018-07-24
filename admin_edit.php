@@ -1,5 +1,7 @@
 ﻿<?
 include("admin.php");
+require_once('sql/selectAdmin.php');
+$res = $result->fetch(PDO::FETCH_OBJ);
 ?>
 <!DOCTYPE html>
 <html>
@@ -17,24 +19,27 @@ include("admin.php");
     <table class="table-hober" width="90%" align="center" border="0" cellspacing="0" cellpadding="6">
         <tr>
             <td>
-                <h1>添加管理员账号</h1>
-                <form id="form1" name="form1" method="post" action="./sql/insertAdmin.php"
+                <h1>添加企业账号</h1>
+                <form id="form1" name="form1" method="post" action="./sql/updateAdmin.php"
                       enctype="multipart/form-data">
                     <table width="100%" border="0" cellpadding="6" cellspacing="0" class="grid">
+                        <input type="hidden" id="id" name="id" value="<?= $res->id; ?>"/>
+                        <input type="hidden" id="old_password" name="old_password" value="<?= $res->password; ?>"/>
                         <tr>
                             <th width="120" align="right">账号名：</th>
                             <td>
                                 <label for="username">
-                                    <input name="username" type="text" id="username" size="60"/>
+                                    <input name="username" value="<?= $res->username; ?>" type="text" id="username" size="60"/>
                                 </label>
                             </td>
                         </tr>
                         <tr>
-                            <th width="120" align="right">密码</th>
+                            <th width="120" align="right"><span style="color: red"><b>*</b></span>密码</th>
                             <td>
-                                <label for="password">
-                                    <input type="password" name="password" id="password" size="60"/>
-                                </label>
+                                <input type="password" name="password" id="password" size="60"/>
+                                <ol class="breadcrumb  alert-info">
+                                    <li><a>Tips：如不填，则保持原有密码</a></li>
+                                </ol>
                             </td>
                         </tr>
                         <tr>
@@ -44,8 +49,8 @@ include("admin.php");
                                 <label for="level">
                                     <select class="form-control" name="level" id="level" style="width: 120px;">
                                         <option value="">请选择权限</option>
-                                        <option value="1">超级管理员</option>
-                                        <option value="2">普通管理员</option>
+                                        <option value="1" <?=$res->level == 1 ? "selected" : ""; ?>>超级管理员</option>
+                                        <option value="2" <?=$res->level == 2 ? "selected" : ""; ?>>普通管理员</option>
                                     </select>
                                 </label>
                             </td>
