@@ -105,7 +105,8 @@ include("admin.php");
                                                 <td><a href="user_edit.php?id=<?= $user->id; ?>"
                                                        class="btn btn-default">编辑</a></td>
                                                 <td><a href="./sql/deleteUser.php?id=<?= $user->id; ?>"
-                                                       class="btn btn-primary">删除</a></td>
+                                                       class="btn btn-primary"
+                                                       onclick="confirm('确定要删除吗？')">删除</a></td>
                                             </tr>
                                         <?php } ?>
                                         </tbody>
