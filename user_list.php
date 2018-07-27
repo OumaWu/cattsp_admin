@@ -50,9 +50,11 @@ include("admin.php");
                                                 <td><?= $admin->id; ?></td>
                                                 <td><?= $admin->username; ?></td>
                                                 <td><?= $admin->level == 1 ? "超管" : "普通管理员"; ?></td>
-                                                <td><a href="./admin_edit.php?id=<?= $admin->id; ?>" class="btn btn-default"
+                                                <td><a href="./admin_edit.php?id=<?= $admin->id; ?>"
+                                                       class="btn btn-default admin-edit"
                                                         <?=$_SESSION["level"] != 1 ? "disabled" : ""; ?>>编辑</a></td>
-                                                <td><a href="./sql/deleteAdmin.php?id=<?= $admin->id; ?>" class="btn btn-primary"
+                                                <td><a href="./sql/deleteAdmin.php?id=<?= $admin->id; ?>"
+                                                       class="btn btn-primary admin-delete"
                                                         <?=$_SESSION["level"] != 1 ? "disabled" : ""; ?>
                                                        onclick="if(!confirm('确定要删除吗？')) return false;">删除</a></td>
                                             </tr>
@@ -178,11 +180,11 @@ include("admin.php");
     });
 
     if (<?=$_SESSION["level"];?>!=1) {
-        $("a.btn-primary").click(function() {
+        $("a.admin-edit").click(function() {
             alert("您的权限不足，请登录超级管理员账号！！");
             return false;
         });
-        $("a.btn-default").click(function() {
+        $("a.admin-delete").click(function() {
             alert("您的权限不足，请登录超级管理员账号！！");
             return false;
         });
