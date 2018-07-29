@@ -26,7 +26,7 @@ include("admin.php");
                         <thead>
                         <tr>
                             <th>编号</th>
-                            <th>需求名称</th>
+                            <th>名称</th>
                             <th>发布企业</th>
                             <th>发布日期</th>
                             <th>编辑</th>
