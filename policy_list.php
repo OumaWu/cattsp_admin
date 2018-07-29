@@ -18,24 +18,20 @@ include("admin.php");
 </head>
 <body class="new">
 <?php include("./style/top.php"); ?>
-<div id="main-wrapper" style="height: 100%">
+<div id="main-wrapper" style="min-height: 100%">
     <div class="template-page-wrapper">
         <?php include("./style/side_nav.php"); ?>
         <!--/.navbar-collapse -->
         <div class="templatemo-content-wrapper">
             <div class="templatemo-content" style="border-left:1px solid #ddd; min-height:885px;">
-                <div class="modal-header" align="right">
-                    <a href="policy_add.php" class="btn btn-primary">添加</a>
-                </div>
+                <h1 class="text-center">政策法规内容管理</h1>
                 <div class="container" style="padding:0;">
-                    <table width="85%" border="0" cellspacing="0" cellpadding="6">
+                    <table width="100%" border="0" cellspacing="0" cellpadding="6">
                         <tr>
                             <td height="auto" valign="top">
                                 <table width="100%" border="0" cellpadding="0" cellspacing="0" class="grid">
                                 </table>
                                 <br/>
-
-
                                 <table id="list" cellpadding="6" cellspacing="0" class="table table-hover">
                                     <tr>
                                         <th>编号</th>
@@ -51,7 +47,8 @@ include("admin.php");
                                         <tr>
                                             <td><?= $res->id; ?></td>
                                             <td><?= !empty($res->category) ? $res->category : "无"; ?></td>
-                                            <td><a href="policy_view.php?id=<?= $res->id; ?>"><?= $res->title; ?></a></td>
+                                            <td><a href="policy_view.php?id=<?= $res->id; ?>"><?= $res->title; ?></a>
+                                            </td>
                                             <td><?= $res->date; ?></td>
                                             <td align="center">
                                                 <a href="policy_edit.php?id=<?= $res->id; ?>">[修改]</a>
@@ -64,6 +61,22 @@ include("admin.php");
                             </td>
                         </tr>
                     </table>
+                </div>
+                <div class="modal-footer">
+                    <ul class="pagination pull-left">
+                        <li class="active">
+                            <a href="policy_add.php" class="btn btn-primary">添加</a>
+                        </li>
+                    </ul>
+                    <ul class="pagination pull-right">
+                        <li class="disabled"><a href="#">&laquo;</a></li>
+                        <li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>
+                        <li><a href="#">2 <span class="sr-only">(current)</span></a></li>
+                        <li><a href="#">3 <span class="sr-only">(current)</span></a></li>
+                        <li><a href="#">4 <span class="sr-only">(current)</span></a></li>
+                        <li><a href="#">5 <span class="sr-only">(current)</span></a></li>
+                        <li><a href="#">&raquo;</a></li>
+                    </ul>
                 </div>
             </div>
         </div>

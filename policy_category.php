@@ -65,14 +65,9 @@ include("admin.php");
 
         <div class="templatemo-content-wrapper">
             <div class="templatemo-content" style="border-left:1px solid #ddd; min-height:885px;">
-                <div class="modal-header" align="right">
-                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal"
-                            id="btn-add">
-                        添加
-                    </button>
-                </div>
+                <h1 class="text-center">政策法规栏目管理</h1>
                 <div class="container" style="padding:0;">
-                    <table width="85%" border="0" cellspacing="0" cellpadding="6">
+                    <table width="100%" border="0" cellspacing="0" cellpadding="6">
                         <tr>
                             <td height="auto" valign="top">
                                 <table width="100%" border="0" cellpadding="0" cellspacing="0" class="grid">
@@ -107,6 +102,27 @@ include("admin.php");
                             </td>
                         </tr>
                     </table>
+                </div>
+                <div class="modal-footer">
+                    <ul class="pagination pull-left">
+                        <li class="active">
+                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal"
+                                    id="btn-add">
+                                添加
+                            </button>
+                        </li>
+                    </ul>
+
+                    <ul class="pagination pull-right">
+                        <li class="disabled"><a href="#">&laquo;</a></li>
+                        <li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>
+                        <li><a href="#">2 <span class="sr-only">(current)</span></a></li>
+                        <li><a href="#">3 <span class="sr-only">(current)</span></a></li>
+                        <li><a href="#">4 <span class="sr-only">(current)</span></a></li>
+                        <li><a href="#">5 <span class="sr-only">(current)</span></a></li>
+                        <li><a href="#">&raquo;</a></li>
+                    </ul>
+
                 </div>
             </div>
         </div>
