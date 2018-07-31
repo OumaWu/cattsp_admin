@@ -22,7 +22,7 @@
                 <div class="form-group">
                     <input type="text" class="form-control" style="width:130%" placeholder="请输入">
                 </div>
-                <button type="submit" id="nav-btn" class="btn btn-default">搜 索</button>
+                <button id="nav-btn" class="btn btn-default">搜 索</button>
             </form>
 
 

@@ -50,11 +50,11 @@ if (!empty($accountname) && !empty($old_password) && !empty($name) && !empty($ti
     }
 
     $sql = "UPDATE `specialists`"
-            ."SET `accountname` = '{$accountname}', `password` = '{$password}', `name` = '$name', `title` = '$title', "
-            ."`career_age` = '$career_age', `degree` = '$degree', `institute` = '$institute',"
-            ." `domain` = '$domain', `speciality` = '$speciality', `location` = '$location', "
-            ."`introduction` = '$introduction', `photo` = '{$new_images}'"
-            ." WHERE `specialists`.`id` = $id";
+            ."SET `accountname` = '{$accountname}', `password` = '{$password}', `name` = '{$name}', `title` = '{$title}', "
+            ."`career_age` = '{$career_age}', `degree` = '{$degree}', `institute` = '{$institute}',"
+            ." `domain` = '{$domain}', `speciality` = '{$speciality}', `location` = '{$location}', "
+            ."`introduction` = '{$introduction}', `photo` = '{$new_images}'"
+            ." WHERE `specialists`.`id` = {$id}";
     try {
         $pdo->beginTransaction();
         $result = $pdo->prepare($sql);

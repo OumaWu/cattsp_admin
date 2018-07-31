@@ -1,13 +1,12 @@
 <?php
 include("connection.php");
 
-$url = "../policy_list.php";
+$url = $_SERVER["HTTP_REFERER"];
 $id = $_GET["id"];
 
-/* 删除数据sql */
 if (!empty($id)) {
     try {
-        $sql = "DELETE FROM `policy` WHERE `id` = {$id}";
+        $sql = "DELETE FROM `reply` WHERE `id` = {$id}";
 
         $pdo->beginTransaction();
         $result = $pdo->prepare($sql);
@@ -18,13 +17,15 @@ if (!empty($id)) {
         } else {
             $pdo->rollBack();
             echo "<script> alert('删除失败！！');</script>";
-//            echo "<meta http-equiv=\"refresh\" content=\"0.5;url=$url\">";
+            echo "<meta http-equiv=\"refresh\" content=\"0.5;url=$url\">";
         }
 
     } catch (PDOException $e) {
         die("Error!!: " . $e->getMessage() . "<br>");
     }
 } else {
-    echo "<script> alert('要删除的对象不存在！！');</script>";}
+    echo "<script> alert('要删除的回复不存在！！');</script>";
+    echo "<meta http-equiv=\"refresh\" content=\"0.5;url=$url\">";
+}
 
 ?>

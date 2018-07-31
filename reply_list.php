@@ -52,8 +52,8 @@ include("admin.php");
                                 <td><?= $res->expert; ?></td>
                                 <td><?= $res->s_type ? $res->spe_account : $res->u_account; ?></td>
                                 <td><?= $res->time; ?></td>
-                                <td><a href="./sql/deleteReply.php?q_id=<? ?>" class="btn btn-primary"
-                                       onclick="if(!confirm('确定要删除吗？')) return false;">删除</a></td>
+                                <td><a href="./sql/deleteReply.php?id=<?= $res->id; ?>" class="btn btn-primary"
+                                       onclick="if(!confirm('确定要删除此条回复内容吗？')) return false;">删除</a></td>
                             </tr>
                         <?php } ?>
                         </tbody>

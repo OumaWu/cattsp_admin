@@ -56,7 +56,7 @@ include("admin.php");
                                 <td><a href="./question_edit.php?q_id=<?= $res->q_id; ?>" class="btn btn-default">编辑</a>
                                 </td>
                                 <td><a href="./sql/deleteQuestion.php?q_id=<?= $res->q_id; ?>" class="btn btn-primary"
-                                       onclick="if(!confirm('确定要删除吗？')) return false;">删除</a></td>
+                                       onclick="if(!confirm('删除后该问题下的回复将被一并删除，确定要删除吗？')) return false;">删除</a></td>
                             </tr>
                         <?php } ?>
                         </tbody>
