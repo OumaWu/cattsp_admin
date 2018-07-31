@@ -26,30 +26,26 @@ include("admin.php");
                 <h1>管理员资料</h1>
                 <div class="row">
                     <div class="col-md-12">
-                        <form role="form" id="templatemo-preferences-form">
+                        <form role="form" id="templatemo-preferences-form" action="./sql/changePassword.php" method="post">
+                            <input type="hidden" value="<?=$_SESSION["id"];?>" name="id" id="id"/>
                             <div class="row">
                                 <div class="col-md-6 margin-bottom-15">
                                     <label>用户名</label>
-                                    <p class="form-control-static" id="username"><?=$_SESSION["username"];?></p>
+                                    <p class="form-control-static" id="username">
+                                        <?=$_SESSION["username"];?>
+                                    </p>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-md-6 margin-bottom-15">
-                                    <label>电子邮箱</label>
-                                    <p class="form-control-static" id="email">admin@company.com</p>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-6 margin-bottom-15">
-                                    <label for="currentPassword">密码</label>
-                                    <input type="password" class="form-control" id="currentPassword" value="********">
-                                    <button type="submit" class="btn btn-default">修改密码</button>
+                                    <label for="password">修改密码</label>
+                                    <input type="password" class="form-control" name="password" id="password" value="">
                                 </div>
                                 <div class="col-md-6 margin-bottom-15"></div>
                             </div>
                             <div class="row templatemo-form-buttons">
                                 <div class="col-md-12">
-                                    <button type="submit" class="btn btn-primary">确定</button>
+                                    <button type="submit" class="btn btn-primary" onclick="if(!confirm('是否修改密码？')) return false;">确定</button>
                                     <button type="reset" class="btn btn-default">重置</button>
                                 </div>
                             </div>
