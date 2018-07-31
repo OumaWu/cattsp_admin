@@ -2,22 +2,18 @@
 /**
  * KindEditor PHP
  *
- * 本PHP程序是演示程序，建议不要直接在实际项目中使用。
- * 如果您确定直接使用本程序，使用之前请仔细确认相关安全设置。
- *
  */
 
 require_once 'JSON.php';
-define('FILE_UPLOAD_PATH', "{$_SERVER['DOCUMENT_ROOT']}/cattsp/images/news_img/");
 $php_path = dirname(__FILE__) . '/';
 $php_url = dirname($_SERVER['PHP_SELF']) . '/';
 
 //文件保存目录路径
 //$save_path = $php_path . '../attached/';
-$save_path = $php_path . 'FILE_UPLOAD_PATH';
+$save_path = $php_path . '../../upload_files/news_img/';
 //文件保存目录URL
 //$save_url = $php_url . '../attached/';
-$save_url = $php_url . 'FILE_UPLOAD_PATH';
+$save_url = $php_url . '../../upload_files/news_img/';
 
 
 //定义允许上传的文件扩展名
