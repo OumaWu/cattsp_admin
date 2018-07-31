@@ -21,34 +21,38 @@ include("admin.php");
 
         <div class="templatemo-content-wrapper">
             <div class="templatemo-content" style="border-left:1px solid #ddd ">
-                <h1>专家账号列表</h1>
+                <h1>回复列表</h1>
+                <h2>问题名称：<?= $_GET["title"]; ?></h2>
                 <div class="table-responsive">
                     <table class="table table-striped table-hover table-bordered">
                         <thead>
                         <tr>
                             <th>编号</th>
-                            <th>账号</th>
-                            <th>姓名</th>
-                            <th>职位/头衔</th>
-                            <th>从事领域</th>
-                            <th>编辑</th>
+                            <th>回复内容</th>
+                            <th>企业账号</th>
+                            <th>账号姓名</th>
+                            <th>专家账号</th>
+                            <th>专家姓名</th>
+                            <th>发送方</th>
+                            <th>发送时间</th>
                             <th>删除</th>
                         </tr>
                         </thead>
                         <tbody>
                         <?php
-                        require_once('./sql/expertList.php');
+                        require_once('./sql/replyList.php');
                         while ($res = $result->fetch(PDO::FETCH_OBJ)) {
                             ?>
                             <tr>
                                 <td><?= $res->id; ?></td>
-                                <td><?= $res->accountname; ?></td>
-                                <td><?= $res->name; ?></td>
-                                <td><?= $res->title; ?></td>
-                                <td><?= $res->domain; ?></td>
-                                <td><a href="./expert_edit.php?id=<?= $res->id; ?>" class="btn btn-default">编辑</a>
-                                </td>
-                                <td><a href="./sql/deleteExpert.php?id=<?= $res->id; ?>" class="btn btn-primary"
+                                <td><?= $res->content; ?></td>
+                                <td><?= $res->u_account; ?></td>
+                                <td><?= $res->user; ?></td>
+                                <td><?= $res->spe_account; ?></td>
+                                <td><?= $res->expert; ?></td>
+                                <td><?= $res->s_type ? $res->spe_account : $res->u_account; ?></td>
+                                <td><?= $res->time; ?></td>
+                                <td><a href="./sql/deleteReply.php?q_id=<? ?>" class="btn btn-primary"
                                        onclick="if(!confirm('确定要删除吗？')) return false;">删除</a></td>
                             </tr>
                         <?php } ?>
@@ -59,7 +63,7 @@ include("admin.php");
                 <div class="modal-footer">
                     <ul class="pagination pull-left">
                         <li class="active">
-                            <a href="expert_add.php" class="btn btn-primary" style="cursor: pointer">添加</a>
+                            <a href="question_list.php" class="btn btn-primary" style="cursor: pointer">返回</a>
                         </li>
                     </ul>
 
@@ -95,6 +99,7 @@ include("admin.php");
         </div>
     </div>
 </div>
+
 
 <?php include("./style/foot.php"); ?>
 <script src="./bootstrap/js/jquery.min.js"></script>

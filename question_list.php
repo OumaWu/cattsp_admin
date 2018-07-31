@@ -21,34 +21,41 @@ include("admin.php");
 
         <div class="templatemo-content-wrapper">
             <div class="templatemo-content" style="border-left:1px solid #ddd ">
-                <h1>专家账号列表</h1>
+                <h1>咨询问题列表</h1>
                 <div class="table-responsive">
                     <table class="table table-striped table-hover table-bordered">
                         <thead>
                         <tr>
                             <th>编号</th>
-                            <th>账号</th>
-                            <th>姓名</th>
-                            <th>职位/头衔</th>
-                            <th>从事领域</th>
+                            <th>问题名称</th>
+                            <th>提问账号</th>
+                            <th>用户姓名</th>
+                            <th>专家账号</th>
+                            <th>专家姓名</th>
+                            <th>发布时间</th>
+                            <th>回复列表</th>
                             <th>编辑</th>
                             <th>删除</th>
                         </tr>
                         </thead>
                         <tbody>
                         <?php
-                        require_once('./sql/expertList.php');
+                        require_once('./sql/questionList.php');
                         while ($res = $result->fetch(PDO::FETCH_OBJ)) {
                             ?>
                             <tr>
-                                <td><?= $res->id; ?></td>
-                                <td><?= $res->accountname; ?></td>
-                                <td><?= $res->name; ?></td>
+                                <td><?= $res->q_id; ?></td>
                                 <td><?= $res->title; ?></td>
-                                <td><?= $res->domain; ?></td>
-                                <td><a href="./expert_edit.php?id=<?= $res->id; ?>" class="btn btn-default">编辑</a>
+                                <td><?= $res->u_account; ?></td>
+                                <td><?= $res->user; ?></td>
+                                <td><?= $res->spe_account; ?></td>
+                                <td><?= $res->expert; ?></td>
+                                <td><?= $res->time; ?></td>
+                                <td><a href="./reply_list.php?q_id=<?= $res->q_id; ?>&title=<?= $res->title; ?>" class="btn btn-default">查看</a>
                                 </td>
-                                <td><a href="./sql/deleteExpert.php?id=<?= $res->id; ?>" class="btn btn-primary"
+                                <td><a href="./question_edit.php?q_id=<?= $res->q_id; ?>" class="btn btn-default">编辑</a>
+                                </td>
+                                <td><a href="./sql/deleteQuestion.php?q_id=<?= $res->q_id; ?>" class="btn btn-primary"
                                        onclick="if(!confirm('确定要删除吗？')) return false;">删除</a></td>
                             </tr>
                         <?php } ?>
@@ -57,11 +64,6 @@ include("admin.php");
                 </div>
 
                 <div class="modal-footer">
-                    <ul class="pagination pull-left">
-                        <li class="active">
-                            <a href="expert_add.php" class="btn btn-primary" style="cursor: pointer">添加</a>
-                        </li>
-                    </ul>
 
                     <ul class="pagination pull-right">
                         <li class="disabled"><a href="#">&laquo;</a></li>
@@ -95,6 +97,7 @@ include("admin.php");
         </div>
     </div>
 </div>
+
 
 <?php include("./style/foot.php"); ?>
 <script src="./bootstrap/js/jquery.min.js"></script>
