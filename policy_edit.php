@@ -52,7 +52,7 @@ $news = $result->fetch(PDO::FETCH_OBJ);
                         </tr>
                         <tr>
                             <th align="right">内容：</th>
-                            <td><? include("common/edadd.php"); ?></td>
+                            <td><? include("common/ededit.php"); ?></td>
                         </tr>
 
                         <table width="100%" style="margin-top: 10px;" cellspacing="0" cellpadding="0">

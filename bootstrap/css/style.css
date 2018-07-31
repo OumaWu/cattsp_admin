@@ -138,5 +138,7 @@ textarea {
 	padding: 0;
 	border: none;
 }
-
+.container {
+	min-height: 100%;
+}
 

@@ -48,19 +48,10 @@ $news = $result->fetch(PDO::FETCH_OBJ);
                         <td align="right">政策内容：</td>
                         <td width="995">
                             <div show="1" style="display:block;" id="hidnr">
-                                <?php
-                                $content = preg_split("/[\s]+/", $news->content);
-                                foreach ($content as $paragraph) {
-                                    ?>
-                                    <p style="text-align:justify">&emsp;&emsp;<?= $paragraph; ?></p>
-                                <?php } ?>
+                                <?= $news->content; ?>
                             </div>
                             <div style="display:none;" id="shownr">
-                                <?php
-                                foreach ($content as $paragraph) {
-                                    ?>
-                                    <p style="text-align:justify">&emsp;&emsp;<?= $paragraph; ?></p>
-                                <?php } ?>
+                                <?= $news->content; ?>
                             </div>
                             <a href="#" style="font-size:16px;" id="toggle" onclick="showhidden();">全文</a>
                         </td>

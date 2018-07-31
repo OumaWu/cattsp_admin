@@ -8,7 +8,7 @@ $news = $result->fetch(PDO::FETCH_OBJ);
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title>中国-东盟太阳能技术转移平台后台管理系统</title>
-    <link href="./bootstrap/css/style.css" rel="stylesheet" type="text/css"/>
+    <link href="./bootstrap/css/style.css?v" rel="stylesheet" type="text/css"/>
     <link href="./bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css"/>
     <link href="./bootstrap/css/my.css?v" rel="stylesheet" type="text/css">
     <script language="javascript" src="./jquery/jquery.min.js"></script>
@@ -37,7 +37,7 @@ $news = $result->fetch(PDO::FETCH_OBJ);
 
                     <tr>
                         <td width="120" align="right">新闻标题：</td>
-                        <td width="995"><?= $news->title; ?></td>
+                        <td width="995"><h3><?= $news->title; ?></h3></td>
                     </tr>
 
                     <tr>
@@ -48,19 +48,10 @@ $news = $result->fetch(PDO::FETCH_OBJ);
                         <td align="right">新闻内容：</td>
                         <td width="995">
                             <div show="1" style="display:block;" id="hidnr">
-                                <?php
-                                $content = preg_split("/[\s]+/", $news->content);
-                                foreach ($content as $paragraph) {
-                                    ?>
-                                    <p style="text-align:justify">&emsp;&emsp;<?= $paragraph; ?></p>
-                                <?php } ?>
+                                <?= $news->content; ?>
                             </div>
                             <div style="display:none;" id="shownr">
-                                <?php
-                                foreach ($content as $paragraph) {
-                                    ?>
-                                    <p style="text-align:justify">&emsp;&emsp;<?= $paragraph; ?></p>
-                                <?php } ?>
+                                <?= $news->content; ?>
                             </div>
                             <a href="#" style="font-size:16px;" id="toggle" onclick="showhidden();">全文</a>
                         </td>

@@ -8,16 +8,16 @@
  */
 
 require_once 'JSON.php';
-
+define('FILE_UPLOAD_PATH', "{$_SERVER['DOCUMENT_ROOT']}/cattsp/images/news_img/");
 $php_path = dirname(__FILE__) . '/';
 $php_url = dirname($_SERVER['PHP_SELF']) . '/';
 
 //文件保存目录路径
 //$save_path = $php_path . '../attached/';
-$save_path = $php_path . '../../upload/';
+$save_path = $php_path . 'FILE_UPLOAD_PATH';
 //文件保存目录URL
 //$save_url = $php_url . '../attached/';
-$save_url = $php_url . '../../upload/';
+$save_url = $php_url . 'FILE_UPLOAD_PATH';
 
 
 //定义允许上传的文件扩展名
