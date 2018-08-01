@@ -1,32 +1,3 @@
-<?php //
-//	include("app_php/conn.php");
-//	//include("../app_php/cd.php");
-//	//include("../app_php/clist.php");
-//
-//	$username = $_POST["username"];
-//	$pwd = $_POST["password"];
-//	$sql = "select * from admin where name='$username' and password='$pwd'";
-//	$rs = GetRs($sql);
-//	$row=GetRow($rs);
-//
-//	//验证用户名、密码及是否为管理员,不同身份登陆跳转到不同页面
-//	if($_POST["username"]){
-//	if($row and $_SESSION["yzm_code"]==$_POST['checkword']){
-//			session_start();
-//			$_SESSION["username"] = $row["name"];
-//			$_SESSION["id"] = $row["id"];
-//
-//			//$logintime = now();
-//			$id = $row["id"];
-//
-//			header("location: oa/index.php");
-//
-//	}else{
-//
-//		echo "<script>alert('用户名或密码错误，请重新输入！')</script>";
-//	}
-//}
-//?>
 <!DOCTYPE html>
 <html>
 <head>
