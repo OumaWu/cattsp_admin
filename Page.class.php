@@ -19,8 +19,40 @@ class Page
     public $endPage;        //中止页
     private $pdo;           //PDO实例
 
+    //返回分页后展示的链接展示块
+    public function displayPages()
+    {
+//        echo "<link rel=\"stylesheet\" type=\"text/css\" href=\"./bootstrap/css/bootstrap.min.css\"/>";
+
+        $pageNav = "<ul class=\"pagination pull-right\">";
+
+        if ($this->currentPage != 1) {
+            $pageNav .= "<li><a href=\"{$_SERVER['PHP_SELF']}?p=1\">&laquo;</a></li>";
+        }
+
+        for ($i = $this->startPage; $i <= $this->endPage; $i++) {
+            $pageNav .= "<li";
+
+            if ($i == $this->currentPage) {
+                $pageNav .= " class=\"active\"";
+            }
+            $pageNav .= ">";
+            $pageNav .= "<a href=\"{$_SERVER['PHP_SELF']}?p={$i}\">" . $i;
+            $pageNav .= "<span class=\"sr-only\">(current)</span></a></li>";
+
+        }
+
+        if ($this->currentPage != $this->pageCount && $this->pageCount > 1) {
+            $pageNav .= "<li><a href=\"{$_SERVER['PHP_SELF']}?p={$this->pageCount}\">&raquo;</a></li>";
+        }
+
+        $pageNav .= "</ul>";
+
+        return $pageNav;
+    }
+
     //传入一个表以及它的primary key名字，定义的分页参数，用来计算偏移量，行数以及页数
-    function __construct($table, $id_name, $pageSize, $currentPage)
+    public function __construct($table, $id_name, $pageSize, $currentPage)
     {
         $this->maxShowPage = 5; //默认最大显示页数为5
         $this->pageSize = $pageSize;
@@ -48,10 +80,9 @@ class Page
 
             }
             //如果当前页距离最大页数距离大于2，则起始页离中止页距离总为5
-            if($this->pageCount - $this->currentPage >= 2) {
+            if ($this->pageCount - $this->currentPage >= 2) {
                 $this->endPage = $this->startPage + $this->maxShowPage - 1;
-            }
-            else {  //否则距离小于2，中止页为最后一页
+            } else {  //否则距离小于2，中止页为最后一页
                 $this->endPage = $this->pageCount;
             }
         }

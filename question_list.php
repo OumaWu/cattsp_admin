@@ -51,7 +51,8 @@ include("admin.php");
                                 <td><?= $res->spe_account; ?></td>
                                 <td><?= $res->expert; ?></td>
                                 <td><?= $res->time; ?></td>
-                                <td><a href="./reply_list.php?q_id=<?= $res->q_id; ?>&title=<?= $res->title; ?>" class="btn btn-default">查看</a>
+                                <td><a href="./reply_list.php?q_id=<?= $res->q_id; ?>&title=<?= $res->title; ?>"
+                                       class="btn btn-default">查看</a>
                                 </td>
                                 <td><a href="./question_edit.php?q_id=<?= $res->q_id; ?>" class="btn btn-default">编辑</a>
                                 </td>
@@ -64,16 +65,8 @@ include("admin.php");
                 </div>
 
                 <div class="modal-footer">
-
-                    <ul class="pagination pull-right">
-                        <li class="disabled"><a href="#">&laquo;</a></li>
-                        <li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>
-                        <li><a href="#">2 <span class="sr-only">(current)</span></a></li>
-                        <li><a href="#">3 <span class="sr-only">(current)</span></a></li>
-                        <li><a href="#">4 <span class="sr-only">(current)</span></a></li>
-                        <li><a href="#">5 <span class="sr-only">(current)</span></a></li>
-                        <li><a href="#">&raquo;</a></li>
-                    </ul>
+                    <!-- 分页链接 -->
+                    <?= $page->displayPages(); ?>
                 </div>
             </div>
         </div>

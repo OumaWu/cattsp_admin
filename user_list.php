@@ -52,10 +52,10 @@ include("admin.php");
                                                 <td><?= $admin->level == 1 ? "超管" : "普通管理员"; ?></td>
                                                 <td><a href="./admin_edit.php?id=<?= $admin->id; ?>"
                                                        class="btn btn-default admin-edit"
-                                                        <?=$_SESSION["level"] != 1 ? "disabled" : ""; ?>>编辑</a></td>
+                                                        <?= $_SESSION["level"] != 1 ? "disabled" : ""; ?>>编辑</a></td>
                                                 <td><a href="./sql/deleteAdmin.php?id=<?= $admin->id; ?>"
                                                        class="btn btn-primary admin-delete"
-                                                        <?=$_SESSION["level"] != 1 ? "disabled" : ""; ?>
+                                                        <?= $_SESSION["level"] != 1 ? "disabled" : ""; ?>
                                                        onclick="if(!confirm('确定要删除吗？')) return false;">删除</a></td>
                                             </tr>
                                         <?php } ?>
@@ -118,14 +118,39 @@ include("admin.php");
                             <a href="user_add.php" id="btn-add" class="btn btn-primary" style="cursor: pointer">添加</a>
                         </li>
                     </ul>
-                    <ul class="pagination pull-right">
-                        <li class="disabled"><a href="#">&laquo;</a></li>
-                        <li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>
-                        <li><a href="#">2 <span class="sr-only">(current)</span></a></li>
-                        <li><a href="#">3 <span class="sr-only">(current)</span></a></li>
-                        <li><a href="#">4 <span class="sr-only">(current)</span></a></li>
-                        <li><a href="#">5 <span class="sr-only">(current)</span></a></li>
-                        <li><a href="#">&raquo;</a></li>
+                    <!-- 分页链接 -->
+                    <ul class="pagination pull-right" id="page_admin">
+
+                        <?php if ($page_admin->currentPage != 1) { ?>
+                            <li><a href="<?="{$_SERVER['PHP_SELF']}?p=1#admins";?>">&laquo;</a></li>
+                        <?php } ?>
+
+                        <?php for ($i = $page_admin->startPage; $i <= $page_admin->endPage; $i++) { ?>
+                            <li <?php if ($i == $page_admin->currentPage) { ?>class="active"<?php } ?>>
+                                <a href="<?="{$_SERVER['PHP_SELF']}?p={$i}#admins";?>"><?=$i;?><span class="sr-only">(current)</span></a>
+                            </li>
+                        <?php } ?>
+
+                        <?php if ($page_admin->currentPage != $page_admin->pageCount && $page_admin->pageCount > 1) { ?>
+                            <li><a href="<?="{$_SERVER['PHP_SELF']}?p={$page_admin->pageCount}#admins";?>">&raquo;</a></li>
+                        <?php } ?>
+                    </ul>
+
+                    <ul class="pagination pull-right" id="page_user">
+
+                        <?php if ($page_user->currentPage != 1) { ?>
+                            <li><a href="<?="{$_SERVER['PHP_SELF']}?p=1#users";?>">&laquo;</a></li>
+                        <?php } ?>
+
+                        <?php for ($i = $page_user->startPage; $i <= $page_user->endPage; $i++) { ?>
+                            <li <?php if ($i == $page_user->currentPage) { ?>class="active"<?php } ?>>
+                                <a href="<?="{$_SERVER['PHP_SELF']}?p={$i}#users";?>"><?=$i;?><span class="sr-only">(current)</span></a>
+                            </li>
+                        <?php } ?>
+
+                        <?php if ($page_user->currentPage != $page_user->pageCount && $page_user->pageCount > 1) { ?>
+                            <li><a href="<?="{$_SERVER['PHP_SELF']}?p={$page_user->pageCount}#users";?>">&raquo;</a></li>
+                        <?php } ?>
                     </ul>
                 </div>
             </div>
@@ -159,32 +184,41 @@ include("admin.php");
 <script src="./bootstrap/js/templatemo_script.js"></script>
 <script>
 
-    $(document).ready(function(){
-        if(location.hash.slice(1).localeCompare("admins")==0) {
-            $("#btn-add").attr("href","admin_add.php");
+    $(document).ready(function () {
+        if (location.hash.slice(1).localeCompare("admins") == 0) {
+            $("#btn-add").attr("href", "admin_add.php");
+            $("#page_admin").css("display", "block");
+            $("#page_user").css("display", "none");
         }
         else {
-            $("#btn-add").attr("href","user_add.php");
+            $("#btn-add").attr("href", "user_add.php");
+            $("#page_admin").css("display", "none");
+            $("#page_user").css("display", "block");
         }
     });
 
     //绑定管理员账号表格和企业账号表格切换时添加按钮所对应的不同的添加页面
-    $(window).bind('hashchange', function() {
+    $(window).bind('hashchange', function () {
         //code
-        if(location.hash.slice(1).localeCompare("admins")==0) {
-            $("#btn-add").attr("href","admin_add.php");
+        if (location.hash.slice(1).localeCompare("admins") == 0) {
+            $("#btn-add").attr("href", "admin_add.php");
+            $("#page_admin").css("display", "block");
+            $("#page_user").css("display", "none");
         }
         else {
-            $("#btn-add").attr("href","user_add.php");
+            $("#btn-add").attr("href", "user_add.php");
+            $("#page_admin").css("display", "none");
+            $("#page_user").css("display", "block");
         }
     });
 
-    if (<?=$_SESSION["level"];?>!=1) {
-        $("a.admin-edit").click(function() {
+    if (<?=$_SESSION["level"];?>!=1)
+    {
+        $("a.admin-edit").click(function () {
             alert("您的权限不足，请登录超级管理员账号！！");
             return false;
         });
-        $("a.admin-delete").click(function() {
+        $("a.admin-delete").click(function () {
             alert("您的权限不足，请登录超级管理员账号！！");
             return false;
         });

@@ -63,15 +63,8 @@ include("admin.php");
                         </li>
                     </ul>
 
-                    <ul class="pagination pull-right">
-                        <li class="disabled"><a href="#">&laquo;</a></li>
-                        <li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>
-                        <li><a href="#">2 <span class="sr-only">(current)</span></a></li>
-                        <li><a href="#">3 <span class="sr-only">(current)</span></a></li>
-                        <li><a href="#">4 <span class="sr-only">(current)</span></a></li>
-                        <li><a href="#">5 <span class="sr-only">(current)</span></a></li>
-                        <li><a href="#">&raquo;</a></li>
-                    </ul>
+                    <!-- 分页链接 -->
+                    <?= $page->displayPages(); ?>
                 </div>
             </div>
         </div>

@@ -5,14 +5,20 @@
  * Date: 2018/7/31
  * Time: 7:54
  */
-require_once("connection.php");
+
+require_once ("./Page.class.php");
+
+$p = empty($_GET["p"]) ? 1 : $_GET["p"];
+$page = new Page("question_view", "q_id", 10, $p);
+
+include_once("connection.php");
 
 $url = $_SERVER["HTTP_REFERER"];
 
 $sql = "SELECT `q_id`, `title`, `u_account`, `user`, `spe_account`, `expert`, `time` FROM `question_view`";
 
 try {
-    $result = $pdo->prepare($sql);
+    $result = $pdo->prepare($page->getOffsetAdded($sql));
     if ($result->execute()) {
     } else {
         echo "<script> alert('提取问题列表失败！！\\n{$pdo->errorInfo()}');</script>";

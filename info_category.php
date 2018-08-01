@@ -113,21 +113,8 @@ include("admin.php");
                         </li>
                     </ul>
 
-                    <ul class="pagination pull-right">
-                        <?php if ($page->currentPage != 1) { ?>
-                            <li><a href="<?="{$_SERVER['PHP_SELF']}?p=1";?>">&laquo;</a></li>
-                        <?php } ?>
-
-                        <?php for ($i = $page->startPage; $i <= $page->endPage; $i++) { ?>
-                            <li <?php if ($i == $page->currentPage) { ?>class="active"<?php } ?>>
-                                <a href="<?="{$_SERVER['PHP_SELF']}?p={$i}";?>"><?=$i;?><span class="sr-only">(current)</span></a>
-                            </li>
-                        <?php } ?>
-
-                        <?php if ($page->currentPage != $page->pageCount && $page->pageCount > 1) { ?>
-                            <li><a href="<?="{$_SERVER['PHP_SELF']}?p={$page->pageCount}";?>">&raquo;</a></li>
-                        <?php } ?>
-                    </ul>
+                    <!-- 分页链接 -->
+                    <?= $page->displayPages(); ?>
 
                 </div>
             </div>

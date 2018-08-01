@@ -1,5 +1,11 @@
 <?php
-require_once("connection.php");
+
+require_once ("./Page.class.php");
+
+$p = empty($_GET["p"]) ? 1 : $_GET["p"];
+$page = new Page("reply", "id", 10, $p);
+
+include_once("connection.php");
 
 $url = $_SERVER["HTTP_REFERER"];
 
@@ -13,7 +19,7 @@ if (isset($_GET['q_id'])) {
         ." order by r.time desc";
 
     try {
-        $result = $pdo->prepare($sql);
+        $result = $pdo->prepare($page->getOffsetAdded($sql));
         if ($result->execute()) {
         } else {
             echo "<script> alert('提取回复列表失败！！\\n{$pdo->errorInfo()}');</script>";
