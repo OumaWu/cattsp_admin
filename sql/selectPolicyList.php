@@ -1,15 +1,18 @@
 <?php
 
+require_once ("./Page.class.php");
+
+$p = empty($_GET["p"]) ? 1 : $_GET["p"];
+$page = new Page("policy", "id", 10, $p);
+
 include("connection.php");
 
 $url = $_SERVER["HTTP_REFERER"];
 
 $sql = "SELECT policy.id, policy.title, policy.date, policy_category.title category "
-        ."FROM `policy`, `policy_category` WHERE policy.category = policy_category.id "
-        ."UNION SELECT policy.id, policy.title, policy.date, policy.category "
-        ."FROM `policy` WHERE policy.category is NULL";
+        ."FROM `policy`, `policy_category` WHERE policy.category = policy_category.id";
 try {
-    $result = $pdo->prepare($sql);
+    $result = $pdo->prepare($page->getOffsetAdded($sql));
     if ($result->execute()) {
     } else {
         echo "<script> alert('提取政策法规列表失败！！\\n{$pdo->errorInfo()}');</script>";

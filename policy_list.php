@@ -69,13 +69,19 @@ include("admin.php");
                         </li>
                     </ul>
                     <ul class="pagination pull-right">
-                        <li class="disabled"><a href="#">&laquo;</a></li>
-                        <li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>
-                        <li><a href="#">2 <span class="sr-only">(current)</span></a></li>
-                        <li><a href="#">3 <span class="sr-only">(current)</span></a></li>
-                        <li><a href="#">4 <span class="sr-only">(current)</span></a></li>
-                        <li><a href="#">5 <span class="sr-only">(current)</span></a></li>
-                        <li><a href="#">&raquo;</a></li>
+                        <?php if ($page->currentPage != 1) { ?>
+                            <li><a href="<?="{$_SERVER['PHP_SELF']}?p=1";?>">&laquo;</a></li>
+                        <?php } ?>
+
+                        <?php for ($i = $page->startPage; $i <= $page->endPage; $i++) { ?>
+                            <li <?php if ($i == $page->currentPage) { ?>class="active"<?php } ?>>
+                                <a href="<?="{$_SERVER['PHP_SELF']}?p={$i}";?>"><?=$i;?><span class="sr-only">(current)</span></a>
+                            </li>
+                        <?php } ?>
+
+                        <?php if ($page->currentPage != $page->pageCount && $page->pageCount > 1) { ?>
+                            <li><a href="<?="{$_SERVER['PHP_SELF']}?p={$page->pageCount}";?>">&raquo;</a></li>
+                        <?php } ?>
                     </ul>
                 </div>
             </div>
