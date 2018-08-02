@@ -58,22 +58,22 @@ $res = $result->fetch(PDO::FETCH_OBJ);
                                         <option value="湖北省">湖北省</option>
                                         <option value="湖南省">湖南省</option>
                                         <option value="广东省">广东省</option>
-                                        <option value="广 西">广 西</option>
+                                        <option value="广西省">广西省</option>
                                         <option value="海南省">海南省</option>
                                         <option value="重庆市">重庆市</option>
                                         <option value="四川省">四川省</option>
                                         <option value="贵州省">贵州省</option>
                                         <option value="云南省">云南省</option>
-                                        <option value="西 藏">西 藏</option>
+                                        <option value="西藏">西藏</option>
                                         <option value="陕西省">陕西省</option>
                                         <option value="甘肃省">甘肃省</option>
                                         <option value="青海省">青海省</option>
-                                        <option value="宁 夏">宁 夏</option>
-                                        <option value="新 疆">新 疆</option>
+                                        <option value="宁夏省">宁夏省</option>
+                                        <option value="新疆">新疆</option>
                                         <option value="台湾省">台湾省</option>
-                                        <option value="香 港">香 港</option>
-                                        <option value="澳 门">澳 门</option>
-                                        <option value="海外">海外</option>
+                                        <option value="香港">香港</option>
+                                        <option value="澳门">澳门</option>
+                                        <option value="国外">国外</option>
                                     </select>
                                 </label></td>
                         </tr>

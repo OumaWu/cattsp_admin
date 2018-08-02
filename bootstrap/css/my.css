@@ -33,14 +33,14 @@ input {
 	position: relative;
 	background-image: url(../../images/bg.jpg);
 	background-repeat: no-repeat;
-	background-size: 100% 100%;
+	background-size: cover;
+	-webkit-background-size: cover;
+	-o-background-size: cover;
 	display: block;
-	width: 100%;
-	padding: 0px;
-	height: 606.3px;
-	margin: 0 auto;
-	margin-top: 7%;
+	min-width: 100%;
+	min-height: 80%;
 	overflow: hidden;
+	margin-top: 10%;
 }
 #login-title {
 	position: relative;

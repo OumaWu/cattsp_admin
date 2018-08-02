@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>中国-东盟太阳能技术转移平台后台管理系统</title>
-<link href="bootstrap/css/my.css?v=2" rel="stylesheet">
+<link href="bootstrap/css/my.css?v=123" rel="stylesheet">
 <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
 </head>
 <body>

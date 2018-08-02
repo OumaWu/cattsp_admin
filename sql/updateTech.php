@@ -73,7 +73,7 @@ if (!empty($_POST["title"]) && !empty($_POST["description"]) && !empty($_POST["u
     }
 
     $sql = "UPDATE `solar_technologies`"
-        . " SET `title` = '{$title}', `entreprise` = '{$entreprise}', `publisher` = '{$publisher}', `location` = '{$location}', `email` = '{$email}', `userid` = '{$userid}'"
+        . " SET `title` = '{$title}', `description` = '{$description}', `entreprise` = '{$entreprise}', `publisher` = '{$publisher}', `location` = '{$location}', `email` = '{$email}', `userid` = '{$userid}'"
         ." ,`image1` = '{$new_images[0]}', `image2` = '{$new_images[1]}', `image3` = '{$new_images[2]}', `image4` = '{$new_images[3]}', `image5` = '{$new_images[4]}'"
         . " WHERE `solar_technologies`.`id` = {$id}";
 
