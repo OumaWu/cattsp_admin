@@ -40,8 +40,8 @@
                 <div class="pull-right"><span class="caret"></span></div>
             </a>
             <ul class="templatemo-submenu">
-                <li><a href="tech_statistic.php"><i class="fa fa-home"></i>技术成果统计</a></li>
-                <li><a href="demand_statistic.php"><i class="fa fa-home"></i>企业需求统计</a></li>
+                <li><a href="tech_statistic.php?s_type=tech"><i class="fa fa-home"></i>技术成果统计</a></li>
+                <li><a href="demand_statistic.php?s_type=demand"><i class="fa fa-home"></i>企业需求统计</a></li>
                 <li><a href="ranking_statistic.php"><i class="fa fa-home"></i>热点统计</a></li>
             </ul>
         </li>

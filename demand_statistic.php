@@ -19,7 +19,7 @@
 
         <div class="templatemo-content-wrapper">
             <div class="templatemo-content" style="border-left:1px solid #ddd; min-height:885px;">
-                <h1 class="text-center">技术成果数量统计</h1>
+                <h1 class="text-center">企业需求数量统计</h1>
                 <div class="col-lg-12 margin-bottom-15"></div>
                 <div class="row">
                     <div id="line-bar" class="col-log-12" style="width:100%; height:100%; min-height:300px;"></div>
@@ -89,7 +89,7 @@ $date = $result2->fetchAll(PDO::FETCH_ASSOC);
         ],
         yAxis:
             {
-                name: '发布的技术成果数量',
+                name: '发布的企业需求数量',
                 type: 'value',
                 axisLabel: {
                     formatter: '{value} 个'
@@ -98,7 +98,7 @@ $date = $result2->fetchAll(PDO::FETCH_ASSOC);
 
         series: [
             {
-                name: '技术成果数量',
+                name: '企业需求数量',
                 type: 'bar',
                 data: [
                     <?php
@@ -165,7 +165,7 @@ $date = $result2->fetchAll(PDO::FETCH_ASSOC);
             ]
         },
         yAxis: {
-            name: '发布的技术成果数量',
+            name: '发布的企业需求数量',
             type: 'value',
             axisLabel: {
                 formatter: '{value} 个'
@@ -174,7 +174,7 @@ $date = $result2->fetchAll(PDO::FETCH_ASSOC);
         series: [
 
             {
-                name: '技术成果数量',
+                name: '企业需求数量',
                 type: 'line',
                 data: [
                     <?php

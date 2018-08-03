@@ -1,0 +1,1 @@
+UPDATE `visit_statistic` SET `v_num` = `v_num`+ 1 WHERE `v_date` = '2018-08-07'
