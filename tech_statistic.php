@@ -40,7 +40,6 @@
 <script src="./echarts/echarts.js"></script>
 <?php
 
-//date_default_timezone_set("Asia/Shanghai");
 include_once "./sql/quantityStatistics.php";
 
 $location = $result->fetchAll(PDO::FETCH_ASSOC);
@@ -48,7 +47,7 @@ $date = $result2->fetchAll(PDO::FETCH_ASSOC);
 
 ?>
 
-<!--  -->
+<!-- 图表加载脚本 -->
 <script>
     var linebar = echarts.init(document.getElementById("line-bar"));
     linebar.setOption({
@@ -130,17 +129,16 @@ $date = $result2->fetchAll(PDO::FETCH_ASSOC);
             type: 'slider',
             show: true,
             realtime: true,
-            start: 40,
-            end: 80,
+            start: 0,
+            end: 100,
         },
             {			//鼠标拖动
                 type: 'inside',
                 show: true,
                 realtime: true,
-                start: 40,
-                end: 80
-            }
-        ],
+                start: 0,
+                end: 100
+            }],
         barGap: '30%',
         toolbox: {
             show: true,
