@@ -20,7 +20,7 @@ $res = $result->fetch(PDO::FETCH_OBJ);
     <table class="table-hober" width="90%" align="center" border="0" cellspacing="0" cellpadding="6">
         <tr>
             <td>
-                <h1>添加技术成果专利</h1>
+                <h1>编辑技术成果专利</h1>
                 <form id="form1" name="form1" method="post" action="./sql/updateTech.php"
                       enctype="multipart/form-data">
                     <input type="hidden" id="id" name="id" value="<?=$res->id;?>"/>
