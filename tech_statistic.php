@@ -78,12 +78,10 @@ $date = $result2->fetchAll(PDO::FETCH_ASSOC);
             {
                 name: '地区',
                 type: 'category',
-                data: [
-                    <?php
-                    foreach ($location as $array => $row)
-                        echo "'" . $row["location"] . "',";
-                    ?>
-                ]
+                data: [<?php
+                    foreach ($location as $index => $row)
+                        echo "'" . $row["location"] . ($index == count($location) - 1 ? "'" : "',");
+                    ?>]
             }
         ],
         yAxis:
@@ -99,12 +97,10 @@ $date = $result2->fetchAll(PDO::FETCH_ASSOC);
             {
                 name: '技术成果数量',
                 type: 'bar',
-                data: [
-                    <?php
-                    foreach ($location as $array => $row)
-                        echo "'" . $row["count"] . "',";
-                    ?>
-                ]
+                data: [<?php
+                    foreach ($location as $index => $row)
+                        echo "'" . $row["count"] . ($index == count($location) - 1 ? "'" : "',");
+                    ?>]
             }
         ]
     });
