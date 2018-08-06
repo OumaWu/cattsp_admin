@@ -1,4 +1,4 @@
-﻿<?
+﻿<?php
 include("admin.php");
 require_once('sql/selectNews.php');
 $news = $result->fetch(PDO::FETCH_OBJ);
@@ -14,7 +14,7 @@ $news = $result->fetch(PDO::FETCH_OBJ);
 </head>
 
 <body class="new">
-<? include("./style/top.php"); ?>
+<?php include("./style/top.php"); ?>
 <div class="container" style="height: 100%">
     <table class="table-hober" width="90%" align="center" border="0" cellspacing="0" cellpadding="6">
         <tr>
@@ -72,6 +72,6 @@ $news = $result->fetch(PDO::FETCH_OBJ);
         </tr>
     </table>
 </div>
-<? include("./style/foot.php"); ?>
+<?php include("./style/foot.php"); ?>
 </body>
 </html>

@@ -1,4 +1,4 @@
-﻿<?
+﻿<?php
 include("admin.php");
 define('IMG_PATH', "http://" . $_SERVER['HTTP_HOST'] . "/cattsp/user_files/avatar/");
 require_once('sql/selectUser.php');
@@ -15,7 +15,7 @@ $res = $result->fetch(PDO::FETCH_OBJ);
 </head>
 
 <body class="">
-<? include("./style/top.php"); ?>
+<?php include("./style/top.php"); ?>
 <div class="container" style="height: 100%">
     <table class="table-hober" width="90%" align="center" border="0" cellspacing="0" cellpadding="6">
         <tr>
@@ -51,7 +51,7 @@ $res = $result->fetch(PDO::FETCH_OBJ);
                         </tr>
                         <tr>
                             <th width="120" align="right"><span style="color: red"><b>*</b></span>姓名：</th>
-                            <td><input name="realname" value="<?= $res->accountname; ?>" type="text" id="realname" size="60"/></td>
+                            <td><input name="realname" value="<?= $res->realname; ?>" type="text" id="realname" size="60"/></td>
                         </tr>
                         <tr>
                             <th width="120" align="right"><span style="color: red"><b>*</b></span>性别：</th>
@@ -91,7 +91,7 @@ $res = $result->fetch(PDO::FETCH_OBJ);
         </tr>
     </table>
 </div>
-<? include("./style/foot.php"); ?>
+<?php include("./style/foot.php"); ?>
 <script>
     // 获取图片上传对象
     var photo = document.getElementById("photo");
