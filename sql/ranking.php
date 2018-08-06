@@ -36,6 +36,7 @@ try {
 } catch (PDOException $e) {
     die("错误!!: " . $e->getMessage() . "<br>");
 }
+?>
 
 
 

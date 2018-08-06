@@ -90,7 +90,7 @@
                     </div>
                     <div class="col-lg-12 margin-bottom-15">
                         <h3 style="margin-left: 40px">
-                            <?
+                            <?php
                             if (!empty($start) && !empty($end) && $start <= $end) {
                                 echo "从 <b>{$start}</b> 至 <b>{$end}</b> 的排名情况";
                             } else {
@@ -100,7 +100,7 @@
                         </h3>
                         <ul class="rank_list">
                             <li id="title"><b>技术成果名称</b><span><b>访问数量</b></span></li>
-                            <? foreach ($r_list as $index => $item) { ?>
+                            <?php foreach ($r_list as $index => $item) { ?>
                                 <li <?= ($index < 3) ? "class=\"top3\"" : ""; ?>><em><?= $index + 1; ?></em><a
                                             target="_blank" href="tech_edit.php?id=<?= $item["s_id"]; ?>">
                                         <?= $item["title"]; ?></a><span><?= $item["count"]; ?></span>

@@ -127,7 +127,7 @@ class Page
         /* read db info from config file into an array */
         $path = dirname(".");
         $db = parse_ini_file($path . DIRECTORY_SEPARATOR . "dbconfig.ini", true);
-        $server = "local";
+        $server = "Aliyun";
 
         /* assign array values to variables */
         $type = $db[$server]["type"];
