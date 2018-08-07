@@ -122,7 +122,7 @@ include("admin.php");
     </div>
 
 </div>
-<? include("./style/foot.php"); ?>
+<?php include("./style/foot.php"); ?>
 <script>
     function get_edit_info(id) {
 

@@ -1,4 +1,4 @@
-﻿<?
+﻿<?php
 include("admin.php");
 require_once('sql/selectAdmin.php');
 $res = $result->fetch(PDO::FETCH_OBJ);
@@ -14,7 +14,7 @@ $res = $result->fetch(PDO::FETCH_OBJ);
 </head>
 
 <body class="">
-<? include("./style/top.php"); ?>
+<?php include("./style/top.php"); ?>
 <div class="container" style="height: 100%">
     <table class="table-hober" width="90%" align="center" border="0" cellspacing="0" cellpadding="6">
         <tr>
@@ -68,6 +68,6 @@ $res = $result->fetch(PDO::FETCH_OBJ);
         </tr>
     </table>
 </div>
-<? include("./style/foot.php"); ?>
+<?php include("./style/foot.php"); ?>
 </body>
 </html>

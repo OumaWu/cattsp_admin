@@ -1,6 +1,6 @@
 ﻿<?php
 include("admin.php");
-define('IMG_PATH', "http://" . $_SERVER['HTTP_HOST'] . "/cattsp/user_files/avatar/");
+define('IMG_PATH', "http://" . $_SERVER['HTTP_HOST'] . "/user_files/avatar/");
 require_once('sql/selectUser.php');
 $res = $result->fetch(PDO::FETCH_OBJ);
 ?>
@@ -28,7 +28,8 @@ $res = $result->fetch(PDO::FETCH_OBJ);
                         <input type="hidden" id="old_password" name="old_password" value="<?= $res->password; ?>"/>
                         <tr>
                             <th width="120" align="right"><span style="color: red"><b>*</b></span>用户名：</th>
-                            <td><input name="accountname" value="<?= $res->accountname; ?>" type="text" id="accountname" size="60"/></td>
+                            <td><input name="accountname" value="<?= $res->accountname; ?>" type="text" id="accountname"
+                                       size="60"/></td>
                         </tr>
                         <tr>
                             <th width="120" align="right"><span style="color: red"><b>*</b></span>密码</th>
@@ -42,24 +43,25 @@ $res = $result->fetch(PDO::FETCH_OBJ);
                         <tr>
                             <th align="right">头像：</th>
                             <td>
-                                <img id="headimg" src="<?=IMG_PATH.$res->photo;?>" alt="预览"
+                                <img id="headimg" src="<?= IMG_PATH . $res->photo; ?>" alt="预览"
                                      onerror="this.onerror=null;this.src='./images/default.jpg';"
                                      style="height: 150px; width: 200px;"/>
                                 <input type="file" id="photo" name="photo" accept="image/*"/>
-                                <input type="hidden" name="o_photo" id="o_photo" value="<?=$res->photo;?>">
+                                <input type="hidden" name="o_photo" id="o_photo" value="<?= $res->photo; ?>">
                             </td>
                         </tr>
                         <tr>
                             <th width="120" align="right"><span style="color: red"><b>*</b></span>姓名：</th>
-                            <td><input name="realname" value="<?= $res->realname; ?>" type="text" id="realname" size="60"/></td>
+                            <td><input name="realname" value="<?= $res->realname; ?>" type="text" id="realname"
+                                       size="60"/></td>
                         </tr>
                         <tr>
                             <th width="120" align="right"><span style="color: red"><b>*</b></span>性别：</th>
                             <td><input id="male" type="radio" name="sex"
-                                       value="1" <?=$res->sex ? 'checked="checked"' : ""; ?>/>
+                                       value="1" <?= $res->sex ? 'checked="checked"' : ""; ?>/>
                                 <label for="male">先生</label>
                                 <input id="female" type="radio" name="sex"
-                                       value="0" <?=!$res->sex ? 'checked="checked"' : ""; ?>/>
+                                       value="0" <?= !$res->sex ? 'checked="checked"' : ""; ?>/>
                                 <label for="female">女士</label></td>
                         </tr>
                         <tr>
@@ -72,11 +74,13 @@ $res = $result->fetch(PDO::FETCH_OBJ);
                         </tr>
                         <tr>
                             <th width="120" align="right"><span style="color: red"><b>*</b></span>所在地：</th>
-                            <td><input name="location" value="<?= $res->location; ?>" type="text" id="location" size="60"/></td>
+                            <td><input name="location" value="<?= $res->location; ?>" type="text" id="location"
+                                       size="60"/></td>
                         </tr>
                         <tr>
                             <th width="120" align="right"><span style="color: red"><b>*</b></span>联系地址：</th>
-                            <td><input name="address" value="<?= $res->address; ?>" type="text" id="address" size="60"/></td>
+                            <td><input name="address" value="<?= $res->address; ?>" type="text" id="address" size="60"/>
+                            </td>
                         </tr>
                         <tr>
                             <th align="right">&nbsp;</th>

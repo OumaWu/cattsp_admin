@@ -1,8 +1,8 @@
-﻿<?
+﻿<?php
 include("admin.php");
 ?>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title>中国-东盟太阳能技术转移平台后台管理系统</title>
@@ -12,7 +12,7 @@ include("admin.php");
 </head>
 
 <body class="new">
-<? include("./style/top.php"); ?>
+<?php include("./style/top.php"); ?>
 <div class="container" style="height: 100%">
     <table class="table-hober" width="90%" align="center" border="0" cellspacing="0" cellpadding="6">
         <tr>
@@ -26,11 +26,12 @@ include("admin.php");
                     <br/>
                     <table width="100%" border="0" cellpadding="6" cellspacing="0" class="grid">
                         <tr>
-                            <th width="120" align="right">新闻标题：</th>
+                            <th width="120" align="right"><label for="title">新闻标题：</label></th>
+
                             <td><input name="title" type="text" id="title" size="60"/></td>
                         </tr>
                         <tr>
-                            <th width="120" align="right"><label for="category">类别</label></th>
+                            <th width="120" align="right"><label for="category">类别：</label></th>
                             <td>
                                 <select class="form-control" name="category" id="category" style="width: 150px;">
                                     <?php
@@ -45,7 +46,7 @@ include("admin.php");
                         </tr>
                         <tr>
                             <th align="right">内容：</th>
-                            <td><? include("common/edadd.php"); ?></td>
+                            <td><?php include("common/edadd.php"); ?></td>
                         </tr>
                         <tr>
                             <th align="right">&nbsp;</th>
@@ -57,6 +58,6 @@ include("admin.php");
         </tr>
     </table>
 </div>
-<? include("./style/foot.php"); ?>
+<?php include("./style/foot.php"); ?>
 </body>
 </html>

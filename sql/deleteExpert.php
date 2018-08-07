@@ -1,6 +1,6 @@
 <?php
 include("connection.php");
-define('FILE_UPLOAD_PATH', "{$_SERVER['DOCUMENT_ROOT']}/cattsp/user_files/expert/");
+define('FILE_UPLOAD_PATH', "{$_SERVER['DOCUMENT_ROOT']}/user_files/expert/");
 $url = "../expert_list.php";
 $url2 = $_SERVER["HTTP_REFERER"];
 $id = $_GET["id"];

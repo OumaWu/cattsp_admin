@@ -81,7 +81,7 @@
         <div class="templatemo-content-wrapper">
             <div class="templatemo-content" style="border-left:1px solid #ddd; min-height:885px;">
                 <?php
-                include_once "./sql/ranking.php";
+                include_once ("./sql/ranking.php");
                 $r_list = $result->fetchAll(PDO::FETCH_ASSOC);
                 ?>
                 <div class="row">
@@ -105,7 +105,7 @@
                                             target="_blank" href="tech_edit.php?id=<?= $item["s_id"]; ?>">
                                         <?= $item["title"]; ?></a><span><?= $item["count"]; ?></span>
                                 </li>
-                            <? } ?>
+                            <?php } ?>
                         </ul>
                     </div>
                     <div class="col-lg-12 margin-bottom-15" style="padding-left: 55px">

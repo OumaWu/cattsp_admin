@@ -1,6 +1,6 @@
 <?php
 session_start();
-define('FILE_UPLOAD_PATH', "{$_SERVER['DOCUMENT_ROOT']}/cattsp/user_files/");
+define('FILE_UPLOAD_PATH', "{$_SERVER['DOCUMENT_ROOT']}/user_files/");
 include("connection.php");
 $url = "../tech_list.php";
 $id = $_GET["id"];

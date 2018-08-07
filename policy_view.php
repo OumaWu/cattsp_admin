@@ -1,4 +1,4 @@
-<?
+<?php
 include("admin.php");
 require_once('./sql/selectPolicy.php');
 $news = $result->fetch(PDO::FETCH_OBJ);
@@ -15,7 +15,7 @@ $news = $result->fetch(PDO::FETCH_OBJ);
 </head>
 
 <body class="new">
-<? include("./style/top.php"); ?>
+<?php include("./style/top.php"); ?>
 <div class="container">
     <!--    <div class="row">-->
     <table width="90%" style="margin-bottom:20px;" align="center" border="0" cellspacing="0" cellpadding="6">
@@ -25,8 +25,8 @@ $news = $result->fetch(PDO::FETCH_OBJ);
                 <table width="100%" cellspacing="0" cellpadding="0">
                     <tr>
                         <td style="float:left"><a href="policy_list.php">[返回]</a></td>
-                        <td style="float:right"><a href="policy_edit.php?id=<?= $news->id ?>">[修改]</a><a
-                                    href="./sql/deletePolicy.php?id=<?= $news->id ?>"
+                        <td style="float:right"><a href="policy_edit.php?id=<?= $news->id; ?>">[修改]</a><a
+                                    href="./sql/deletePolicy.php?id=<?= $news->id; ?>"
                                     onclick="if(!confirm('确认删除?')) return false;">[删除]</a>
                         </td>
                     </tr>
@@ -67,7 +67,7 @@ $news = $result->fetch(PDO::FETCH_OBJ);
     <!--    </div>-->
 </div>
 
-<? include("./style/foot.php"); ?>
+<?php include("./style/foot.php"); ?>
 <script>
     //收起、全文切换
     var nr = document.getElementById("hidnr").innerHTML;

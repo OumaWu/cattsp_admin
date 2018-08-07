@@ -1,4 +1,4 @@
-﻿<?
+﻿<?php
 include("admin.php");
 require_once('sql/selectDemand.php');
 $res = $result->fetch(PDO::FETCH_OBJ);
@@ -14,7 +14,7 @@ $res = $result->fetch(PDO::FETCH_OBJ);
 </head>
 
 <body class="">
-<? include("./style/top.php"); ?>
+<?php include("./style/top.php"); ?>
 <div class="container" style="height: 100%">
     <table class="table-hober" width="90%" align="center" border="0" cellspacing="0" cellpadding="6">
         <tr>
@@ -94,7 +94,7 @@ $res = $result->fetch(PDO::FETCH_OBJ);
                             <td>
                                 <select class="form-control" name="user_id" id="user_id" style="width: 150px;">
                                     <option value="" selected="selected">请选择用户</option>
-                                    <?
+                                    <?php
                                     require_once('./sql/selectUsername.php');
                                     while ($user = $result->fetch(PDO::FETCH_OBJ)) {
                                     ?>
@@ -118,7 +118,7 @@ $res = $result->fetch(PDO::FETCH_OBJ);
         </tr>
     </table>
 </div>
-<? include("./style/foot.php"); ?>
+<?php include("./style/foot.php"); ?>
 <script>
     $("#location").val("<?=$res->location;?>");
 </script>

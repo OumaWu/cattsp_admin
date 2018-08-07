@@ -13,7 +13,7 @@ if (!empty($start) && !empty($end) && $start <= $end) {
     $dateStmt .= " and `v_date` BETWEEN '{$start}' AND '{$end}'";
 }
 
-include "connection.php";
+include ("connection.php");
 
 $sql = "select `s`.`id` AS `s_id`,`s`.`title` AS `title`,sum(`v`.`v_count`) AS `count`"
     ." from `visit_statistic` `v`, `solar_technologies` `s`"

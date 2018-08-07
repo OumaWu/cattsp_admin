@@ -1,6 +1,6 @@
-﻿<?
+﻿<?php
 include("admin.php");
-define('IMG_PATH', "http://" . $_SERVER['HTTP_HOST'] . "/cattsp/user_files/");
+define('IMG_PATH', "http://" . $_SERVER['HTTP_HOST'] . "/user_files/");
 require_once('sql/selectTech.php');
 $res = $result->fetch(PDO::FETCH_OBJ);
 ?>
@@ -15,7 +15,7 @@ $res = $result->fetch(PDO::FETCH_OBJ);
 </head>
 
 <body class="">
-<? include("./style/top.php"); ?>
+<?php include("./style/top.php"); ?>
 <div class="container">
     <table class="table-hober" width="90%" align="center" border="0" cellspacing="0" cellpadding="6">
         <tr>
@@ -91,7 +91,7 @@ $res = $result->fetch(PDO::FETCH_OBJ);
                                 <select class="form-control" name="user_id" id="user_id" style="width: 110px;"
                                         onchange="setUsername();">
                                     <option value="">选择用户</option>
-                                    <?
+                                    <?php
                                     require_once('./sql/selectUsername.php');
                                     while ($user = $result->fetch(PDO::FETCH_OBJ)) {
                                         ?>
@@ -165,7 +165,7 @@ $res = $result->fetch(PDO::FETCH_OBJ);
         </tr>
     </table>
 </div>
-<? include("./style/foot.php"); ?>
+<?php include("./style/foot.php"); ?>
 <script type="text/javascript" src="./js/jquery-3.3.1.min.js"></script>
 <script type="text/javascript" src="./js/edit-tech.js"></script>
 <script>

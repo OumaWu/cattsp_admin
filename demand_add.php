@@ -1,4 +1,4 @@
-﻿<?
+﻿<?php
 include("admin.php");
 ?>
 <!DOCTYPE html>
@@ -12,7 +12,7 @@ include("admin.php");
 </head>
 
 <body class="">
-<? include("./style/top.php"); ?>
+<?php include("./style/top.php"); ?>
 <div class="container" style="height: 100%">
     <table class="table-hober" width="90%" align="center" border="0" cellspacing="0" cellpadding="6">
         <tr>
@@ -91,7 +91,7 @@ include("admin.php");
                             <td>
                                 <select class="form-control" name="user_id" id="user_id" style="width: 150px;">
                                     <option value="">请选择用户</option>
-                                    <?
+                                    <?php
                                     require_once('./sql/selectUsername.php');
                                     while ($user = $result->fetch(PDO::FETCH_OBJ)) {
                                         ?>
@@ -113,6 +113,6 @@ include("admin.php");
         </tr>
     </table>
 </div>
-<? include("./style/foot.php"); ?>
+<?php include("./style/foot.php"); ?>
 </body>
 </html>

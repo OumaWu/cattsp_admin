@@ -50,6 +50,7 @@ if(!empty($s_type)) {
     echo "<script> alert('没有接收到数据！！！');</script>";
     echo "<meta http-equiv=\"refresh\" content=\"0.5;url=$url\">";
 }
+?>
 
 
 

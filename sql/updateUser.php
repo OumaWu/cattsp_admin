@@ -5,7 +5,7 @@
  * Date: 2018/3/29
  * Time: 2:43
  */
-define('FILE_UPLOAD_PATH', "{$_SERVER['DOCUMENT_ROOT']}/cattsp/user_files/avatar/");
+define('FILE_UPLOAD_PATH', "{$_SERVER['DOCUMENT_ROOT']}/user_files/avatar/");
 $url = "../user_list.php";
 $userid = $_POST["id"];
 $accountname = $_POST["accountname"];

@@ -75,7 +75,7 @@ include("admin.php");
         </div>
     </div>
 </div>
-<? include("./style/foot.php"); ?>
+<?php include("./style/foot.php"); ?>
 <script src="./bootstrap/js/bootstrap.min.js"></script>
 <script src="./bootstrap/js/templatemo_script.js"></script>
 </body>

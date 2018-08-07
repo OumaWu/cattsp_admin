@@ -1,5 +1,5 @@
 <?php
-define('FILE_UPLOAD_PATH', "{$_SERVER['DOCUMENT_ROOT']}/cattsp/user_files/avatar/");
+define('FILE_UPLOAD_PATH', "{$_SERVER['DOCUMENT_ROOT']}/user_files/avatar/");
 $url = "../user_list.php";
 $url2 = $_SERVER["HTTP_REFERER"];
 $accountname = $_POST["accountname"];

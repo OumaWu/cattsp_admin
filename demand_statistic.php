@@ -40,7 +40,7 @@
 <script src="./echarts/echarts.js"></script>
 <?php
 
-include_once "./sql/quantityStatistics.php";
+include_once ("./sql/quantityStatistics.php");
 
 $location = $result->fetchAll(PDO::FETCH_ASSOC);
 $date = $result2->fetchAll(PDO::FETCH_ASSOC);
@@ -152,12 +152,10 @@ $date = $result2->fetchAll(PDO::FETCH_ASSOC);
             name: '日期',
             type: 'category',
             boundaryGap: true,
-            data: [
-                <?php
+            data: [<?php
                 foreach ($date as $array => $row)
                     echo "'" . $row["date"] . "',";
-                ?>
-            ]
+                ?>]
         },
         yAxis: {
             name: '发布的企业需求数量',
@@ -171,12 +169,10 @@ $date = $result2->fetchAll(PDO::FETCH_ASSOC);
             {
                 name: '企业需求数量',
                 type: 'line',
-                data: [
-                    <?php
+                data: [<?php
                     foreach ($date as $array => $row)
                         echo "'" . $row["count"] . "',";
-                    ?>
-                ]
+                    ?>]
             }
         ]
     });

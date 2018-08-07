@@ -1,4 +1,4 @@
-﻿<?
+﻿<?php
 include("admin.php");
 ?>
 <!DOCTYPE html>
@@ -12,7 +12,7 @@ include("admin.php");
 </head>
 
 <body class="">
-<? include("./style/top.php"); ?>
+<?php include("./style/top.php"); ?>
 <div class="container">
     <table class="table-hober" width="90%" align="center" border="0" cellspacing="0" cellpadding="6">
         <tr>
@@ -20,12 +20,6 @@ include("admin.php");
                 <h1>添加专家账号</h1>
                 <form id="form1" name="form1" method="post" action="./sql/insertExpert.php"
                       enctype="multipart/form-data">
-                    <!--                    <table width="100%" cellspacing="0" cellpadding="0">-->
-                    <!--                        <tr>-->
-                    <!--                            <td style="float:left"></td>-->
-                    <!--                        </tr>-->
-                    <!--                    </table>-->
-                    <!--                    <br/>-->
                     <table width="100%" border="0" cellpadding="6" cellspacing="0" class="grid">
                         <tr>
                             <th width="120" align="right">用户名：</th>
@@ -99,7 +93,7 @@ include("admin.php");
         </tr>
     </table>
 </div>
-<? include("./style/foot.php"); ?>
+<?php include("./style/foot.php"); ?>
 <script>
     // 获取图片上传对象
     var photo = document.getElementById("photo");

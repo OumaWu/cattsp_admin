@@ -1,9 +1,6 @@
 <?php
-
 include("admin.php");
 ?>
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -185,7 +182,7 @@ include("admin.php");
 <script>
 
     $(document).ready(function () {
-        if (location.hash.slice(1).localeCompare("admins") == 0) {
+        if (location.hash.slice(1).localeCompare("admins") === 0) {
             $("#btn-add").attr("href", "admin_add.php");
             $("#page_admin").css("display", "block");
             $("#page_user").css("display", "none");
@@ -200,7 +197,7 @@ include("admin.php");
     //绑定管理员账号表格和企业账号表格切换时添加按钮所对应的不同的添加页面
     $(window).bind('hashchange', function () {
         //code
-        if (location.hash.slice(1).localeCompare("admins") == 0) {
+        if (location.hash.slice(1).localeCompare("admins") === 0) {
             $("#btn-add").attr("href", "admin_add.php");
             $("#page_admin").css("display", "block");
             $("#page_user").css("display", "none");
@@ -223,8 +220,6 @@ include("admin.php");
             return false;
         });
     }
-
-
 </script>
 </body>
 </html>

@@ -1,4 +1,4 @@
-﻿<?
+﻿<?php
 include("admin.php");
 ?>
 <!DOCTYPE html>
@@ -12,7 +12,7 @@ include("admin.php");
 </head>
 
 <body class="">
-<? include("./style/top.php"); ?>
+<?php include("./style/top.php"); ?>
 <div class="container" style="height: 100%">
     <table class="table-hober" width="90%" align="center" border="0" cellspacing="0" cellpadding="6">
         <tr>
@@ -63,6 +63,6 @@ include("admin.php");
         </tr>
     </table>
 </div>
-<? include("./style/foot.php"); ?>
+<?php include("./style/foot.php"); ?>
 </body>
 </html>

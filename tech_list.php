@@ -2,6 +2,7 @@
 include("admin.php");
 ?>
 <!DOCTYPE html>
+<html>
 <head>
     <meta charset="utf-8">
     <!--[if IE]>
@@ -84,10 +85,6 @@ include("admin.php");
             </div>
         </div>
     </div>
-</div>
-
-
-</div>
 </div>
 <?php include("./style/foot.php"); ?>
 <script src="./bootstrap/js/jquery.min.js"></script>

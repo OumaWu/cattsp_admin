@@ -1,4 +1,4 @@
-<?
+<?php
 include("admin.php");
 require_once('./sql/selectNews.php');
 $news = $result->fetch(PDO::FETCH_OBJ);
@@ -15,7 +15,7 @@ $news = $result->fetch(PDO::FETCH_OBJ);
 </head>
 
 <body class="new">
-<? include("./style/top.php"); ?>
+<?php include("./style/top.php"); ?>
 <div class="container">
     <!--    <div class="row">-->
     <table width="90%" style="margin-bottom:20px;" align="center" border="0" cellspacing="0" cellpadding="6">
@@ -67,7 +67,7 @@ $news = $result->fetch(PDO::FETCH_OBJ);
     <!--    </div>-->
 </div>
 
-<? include("./style/foot.php"); ?>
+<?php include("./style/foot.php"); ?>
 <script>
     //收起、全文切换
     var nr = document.getElementById("hidnr").innerHTML;

@@ -2,6 +2,7 @@
 include("admin.php");
 ?>
 <!DOCTYPE html>
+<html lang="en">
 <head>
     <meta charset="utf-8">
     <!--[if IE]>

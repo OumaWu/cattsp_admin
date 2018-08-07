@@ -1,6 +1,6 @@
-﻿<?
+﻿<?php
 include("admin.php");
-define('IMG_PATH', "http://" . $_SERVER['HTTP_HOST'] . "/cattsp/user_files/expert/");
+define('IMG_PATH', "http://" . $_SERVER['HTTP_HOST'] . "/user_files/expert/");
 require_once('sql/selectExpert.php');
 $res = $result->fetch(PDO::FETCH_OBJ);
 ?>
@@ -15,7 +15,7 @@ $res = $result->fetch(PDO::FETCH_OBJ);
 </head>
 
 <body class="">
-<? include("./style/top.php"); ?>
+<?php include("./style/top.php"); ?>
 <div class="container">
     <table class="table-hober" width="90%" align="center" border="0" cellspacing="0" cellpadding="6">
         <tr>
@@ -23,12 +23,6 @@ $res = $result->fetch(PDO::FETCH_OBJ);
                 <h1>编辑专家账号</h1>
                 <form id="form1" name="form1" method="post" action="./sql/updateExpert.php"
                       enctype="multipart/form-data">
-                    <!--                    <table width="100%" cellspacing="0" cellpadding="0">-->
-                    <!--                        <tr>-->
-                    <!--                            <td style="float:left"></td>-->
-                    <!--                        </tr>-->
-                    <!--                    </table>-->
-                    <!--                    <br/>-->
                     <table width="100%" border="0" cellpadding="6" cellspacing="0" class="grid">
                         <input type="hidden" id="id" name="id" value="<?= $res->id; ?>"/>
                         <input type="hidden" id="old_password" name="old_password" value="<?= $res->password; ?>"/>
@@ -114,7 +108,7 @@ $res = $result->fetch(PDO::FETCH_OBJ);
         </tr>
     </table>
 </div>
-<? include("./style/foot.php"); ?>
+<?php include("./style/foot.php"); ?>
 <script>
     // 获取图片上传对象
     var photo = document.getElementById("photo");

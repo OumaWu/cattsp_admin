@@ -97,3 +97,4 @@ if (!empty($_POST["title"]) && !empty($_POST["description"]) && !empty($_POST["u
     echo "<script> alert('请填必填信息！！');</script>";
     echo "<meta http-equiv=\"refresh\" content=\"0.5;url={$url2}\">";
 }
+?>
