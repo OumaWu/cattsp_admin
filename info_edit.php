@@ -33,13 +33,17 @@ $news = $result->fetch(PDO::FETCH_OBJ);
                     <table width="100%" border="0" cellpadding="6" cellspacing="0" class="grid">
                         <tr>
                             <th align="right">新闻标题：</th>
-                            <td><input name="title" type="text" id="title" value="<?= $news->title; ?>"
-                                       size="60"/></td>
+                            <td>
+                                <textarea style="width: 900px"
+                                       name="title"
+                                       id="title"
+                                ><?= $news->title; ?></textarea>
+                            </td>
                         </tr>
                         <tr>
                             <th align="right"><label for="category">类别：</label></th>
                             <td>
-                                <select class="form-control" name="category" id="category" style="width: 150px;">
+                                <select class="form-control" name="category" id="category" style="width: 200px;">
                                     <?php
                                     require_once('./sql/newsColumns.php');
                                     while ($res = $result->fetch(PDO::FETCH_OBJ)) {
